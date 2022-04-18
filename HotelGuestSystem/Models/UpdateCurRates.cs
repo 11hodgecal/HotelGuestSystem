@@ -10,10 +10,10 @@
     public static class UpdateCurRates
     {
 
-        private static async Task Update(ApplicationDbContext Context)
+        public static async Task Update(ApplicationDbContext Context)
         {
             //scrapes the currency converstion rates of a website
-            var driver = new ChromeDriver();
+            var driver = new ChromeDriver("C:\\Program Files\\Google\\Chrome\\Application");
             driver.Navigate().GoToUrl("https://www.exchangerates.org.uk/");
 
             string GDPToUsd = driver.FindElement(By.XPath("/html/body/div[2]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div/div[1]/table/tbody/tr[2]/td[4]/strong")).Text;
@@ -24,38 +24,38 @@
             double GBPToYenRate = Convert.ToDouble(GBPToYen);
             driver.Close();
             
-            using (Context)
+            
+            //gets the current rates
+            var rates = await Context.GBPConversionRates.ToListAsync();
+            //if the rates dont exist create them 
+            if (rates.Count == 0)
             {
-                //gets the current rates
-                var rates = await Context.GBPConversionRates.ToListAsync();
-                //if the rates dont exist create them 
-                if (rates.Count == 0)
-                {
-                    var newRates = new CurrentRatesModel();
+                var newRates = new CurrentRatesModel();
 
-                    newRates.GDPToUSDRate = GDPToUsdRate;
-                    newRates.GDPToYenRate = GBPToYenRate;
-                    newRates.GDPToEuroRate = GBPToEURRate;
+                newRates.GDPToUSDRate = GDPToUsdRate;
+                newRates.GDPToYenRate = GBPToYenRate;
+                newRates.GDPToEuroRate = GBPToEURRate;
 
-                    newRates.NextUpdate = DateTime.Now.AddDays(1);
-                    Context.GBPConversionRates.Add(newRates);
-                    await Context.SaveChangesAsync();
-                }
-                //if the currency converstion rates exist update them with newer ones
-                if (rates.Count == 1)
-                {
-                    var newRates = Context.GBPConversionRates.FirstOrDefaultAsync().Result;
-                    newRates.GDPToUSDRate = GDPToUsdRate;
-                    newRates.GDPToYenRate = GBPToYenRate;
-                    newRates.GDPToEuroRate = GBPToEURRate;
-
-                    newRates.NextUpdate = DateTime.Now.AddDays(1);
-                    Context.GBPConversionRates.Update(newRates);
-                    await Context.SaveChangesAsync();
-
-                }
+                newRates.NextUpdate = DateTime.Now.AddDays(1);
+                Context.GBPConversionRates.Add(newRates);
+                await Context.SaveChangesAsync();
             }
+            //if the currency converstion rates exist update them with newer ones
+            if (rates.Count == 1)
+            {
+                var newRates = Context.GBPConversionRates.FirstOrDefaultAsync().Result;
+                newRates.GDPToUSDRate = GDPToUsdRate;
+                newRates.GDPToYenRate = GBPToYenRate;
+                newRates.GDPToEuroRate = GBPToEURRate;
+
+                newRates.NextUpdate = DateTime.Now.AddDays(1);
+                Context.GBPConversionRates.Update(newRates);
+                await Context.SaveChangesAsync();
+
+            }
+            
         }
+        //manual test
         public static async Task CheckRates()
         {
 
