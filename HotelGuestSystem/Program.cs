@@ -1,3 +1,4 @@
+using HotelGuestSystem.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +14,8 @@ namespace HotelGuestSystem
     {
         public static void Main(string[] args)
         {
+            //Checks the Currency rates
+            UpdateCurRates.CheckRates();
             CreateHostBuilder(args).Build().Run();
         }
 

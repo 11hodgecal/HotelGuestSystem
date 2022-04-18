@@ -3,41 +3,20 @@ using System;
 using HotelGuestSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HotelGuestSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220418124734_datainit1")]
+    partial class datainit1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.13");
-
-            modelBuilder.Entity("HotelGuestSystem.Models.CurrentRatesModel", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<double>("GDPToEuroRate")
-                        .HasColumnType("REAL");
-
-                    b.Property<double>("GDPToUSDRate")
-                        .HasColumnType("REAL");
-
-                    b.Property<double>("GDPToYenRate")
-                        .HasColumnType("REAL");
-
-                    b.Property<DateTime>("NextUpdate")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("id");
-
-                    b.ToTable("GBPConversionRates");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {

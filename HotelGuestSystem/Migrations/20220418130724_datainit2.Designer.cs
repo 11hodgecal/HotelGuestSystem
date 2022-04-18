@@ -3,14 +3,16 @@ using System;
 using HotelGuestSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HotelGuestSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220418130724_datainit2")]
+    partial class datainit2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,9 +32,6 @@ namespace HotelGuestSystem.Migrations
 
                     b.Property<double>("GDPToYenRate")
                         .HasColumnType("REAL");
-
-                    b.Property<DateTime>("NextUpdate")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("id");
 
