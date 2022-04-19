@@ -9,12 +9,6 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<form asp-controller="User" asp-action="Index">
-    <p>
-        Search Username: <input type="text" name="UserSearch" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
 
 <table class="table">
     <thead>
@@ -40,7 +34,7 @@
         {
             if(item.UserName != "admin@admin.com")//only show staff
             { 
-                <tr>
+                <tr id="@item.Fname">
                     <td>
                         @Html.DisplayFor(modelItem => item.UserName)
                     </td>
@@ -52,7 +46,7 @@
                     </td>
 
                     <td>
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Delete" id ="@item.Id" asp-route-id="@item.Id">Delete</a>
                     </td>
                 </tr>
             }

@@ -26,21 +26,6 @@ namespace ItManagementSystem.Controllers
             _roleManager = roleManager;
         }
 
-        //allows the Admin to search throgh the users
-        [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public async Task<IActionResult> Index(string UserSearch)
-        {
-            var _search = from m in _context.UserModel
-                              select m;
-
-            if (!String.IsNullOrEmpty(UserSearch))
-            {
-                _search = _search.Where(s => s.UserName.Contains(UserSearch));
-            }
-
-            return View(await _search.ToListAsync());
-        }
         //allows the Admin to list the users in the database
         [Authorize(Roles ="Admin")]
         public async Task<IActionResult> Index()
