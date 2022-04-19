@@ -1,0 +1,62 @@
+﻿@model IEnumerable<HotelGuestSystem.Models.UserModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Staff</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-controller="User" asp-action="Index">
+    <p>
+        Search Username: <input type="text" name="UserSearch" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Email
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        
+        @foreach (var item in Model)
+        {
+            if(item.UserName != "admin@admin.com")//only show staff
+            { 
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sname)
+                    </td>
+
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

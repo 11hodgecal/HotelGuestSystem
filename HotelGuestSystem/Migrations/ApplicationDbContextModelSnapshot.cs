@@ -14,7 +14,7 @@ namespace HotelGuestSystem.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.13");
+                .HasAnnotation("ProductVersion", "5.0.16");
 
             modelBuilder.Entity("HotelGuestSystem.Models.CurrentRatesModel", b =>
                 {
@@ -63,6 +63,29 @@ namespace HotelGuestSystem.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "78bf8cbe-1f70-4d6d-890b-247bc57e6150",
+                            ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02",
+                            ConcurrencyStamp = "d4e41d27-8605-4e69-8587-2636ed98e286",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        },
+                        new
+                        {
+                            Id = "709a40af-4a4e-40b6-887b-d30dcdf07030",
+                            ConcurrencyStamp = "db72e6db-01bf-432b-8675-1d08242bb162",
+                            Name = "Staff",
+                            NormalizedName = "STAFF"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -98,6 +121,10 @@ namespace HotelGuestSystem.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
@@ -150,6 +177,8 @@ namespace HotelGuestSystem.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -178,11 +207,9 @@ namespace HotelGuestSystem.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderDisplayName")
@@ -212,6 +239,23 @@ namespace HotelGuestSystem.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "27b9af34-a133-43e2-8dd2-aef04ddb2b8c",
+                            RoleId = "78bf8cbe-1f70-4d6d-890b-247bc57e6150"
+                        },
+                        new
+                        {
+                            UserId = "27b9af34-a133-43e2-8dd2-aef04ddb2b8c",
+                            RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02"
+                        },
+                        new
+                        {
+                            UserId = "27b9af34-a133-43e2-8dd2-aef04ddb2b8c",
+                            RoleId = "709a40af-4a4e-40b6-887b-d30dcdf07030"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -220,11 +264,9 @@ namespace HotelGuestSystem.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Value")
@@ -233,6 +275,41 @@ namespace HotelGuestSystem.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("HotelGuestSystem.Models.UserModel", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("Fname")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Sname")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasDiscriminator().HasValue("UserModel");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "27b9af34-a133-43e2-8dd2-aef04ddb2b8c",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29",
+                            Email = "admin@admin.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@ADMIN.COM",
+                            NormalizedUserName = "ADMIN@ADMIN.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGWIE4xoKBF8z7aLi/lFVbtVH76WTS73hPKFQZmMsRAuMsgMlFEjPsOQXznnhC88RQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "3e2328bc-66a4-4b24-8004-a2dea57cfc61",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@admin.com",
+                            Fname = "Bob",
+                            Sname = "Nobody"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
