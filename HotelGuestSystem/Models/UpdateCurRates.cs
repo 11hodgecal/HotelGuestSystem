@@ -70,6 +70,7 @@
             
             using (_db)
             {
+                //try update the currency rates
                 try
                 {
                     var rates = await _db.GBPConversionRates.ToListAsync();
@@ -81,16 +82,12 @@
                     }
                     
                 }
+                //if they dont exist make them
                 catch (Exception)
                 {
-
-
                     await Update(_db);
-
-
-
                 }
-                //gets the rates
+                
                 
                 
 
