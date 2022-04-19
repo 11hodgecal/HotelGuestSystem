@@ -40,9 +40,10 @@ namespace HotelGuestSystem
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
-
+            services.AddSingleton<IStartupTasks, StartupTasks>();
 
             services.AddControllersWithViews();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,7 +67,7 @@ namespace HotelGuestSystem
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelGuestSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220419154154_dataini1")]
+    [Migration("20220419183921_dataini1")]
     partial class dataini1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -304,9 +304,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGWIE4xoKBF8z7aLi/lFVbtVH76WTS73hPKFQZmMsRAuMsgMlFEjPsOQXznnhC88RQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENhaltiDUMq9GSPV8U6NMbPvejNfdOajxSWFV9kE0DQrn9oYx1HoBtIu3SPKHjNkGA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3e2328bc-66a4-4b24-8004-a2dea57cfc61",
+                            SecurityStamp = "94da06ca-6e5e-4e24-83df-969446cad493",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com",
                             Fname = "Bob",

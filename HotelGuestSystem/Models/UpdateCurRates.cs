@@ -64,25 +64,37 @@
             var options = new DbContextOptionsBuilder<ApplicationDbContext>().
                 UseSqlite("DataSource=C:\\Users\\callu\\Desktop\\HotelGuestSystem\\app.db").Options;
             _db = new ApplicationDbContext(options);
+            _db.Database.EnsureCreated();
             await _db.SaveChangesAsync();
 
             
             using (_db)
             {
-                //gets the rates
-                var rates = await _db.GBPConversionRates.ToListAsync();
-                //if they dont exist update them
-                if(rates.Count == 0)
+                try
                 {
-                    await Update(_db);
+                    var rates = await _db.GBPConversionRates.ToListAsync();
+                    //if the currency rates are set to update update them
+                    var needupdate = DateTime.Compare(DateTime.Now, rates[0].NextUpdate);
+                    if (needupdate == 1)
+                    {
+                        await Update(_db);
+                    }
+                    
                 }
+                catch (Exception)
+                {
 
-                //if the currency rates are set to update update them
-                var needupdate = DateTime.Compare(DateTime.Now, rates[0].NextUpdate);
-                if (needupdate == 1)
-                {
+
                     await Update(_db);
+
+
+
                 }
+                //gets the rates
+                
+                
+
+                
             }
             
         }
