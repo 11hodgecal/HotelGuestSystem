@@ -29,7 +29,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr id="@item.Id">
+        <tr id="@item.Name">
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -40,10 +40,10 @@
                 £ @item.Price
             </td>
             <td>
-                    @if(item.Imagepath != null)
-                    {
-                        <img width="250" class="img-thumbnail" src="@item.Imagepath">
-                    }
+                @if(item.Imagepath != null)
+                {
+                    <img width="250" class="img-thumbnail" src="@item.Imagepath">
+                }
                 
             </td>
             <td>
