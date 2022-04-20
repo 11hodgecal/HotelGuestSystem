@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelGuestSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220419183921_dataini1")]
-    partial class dataini1
+    [Migration("20220420144711_datainit3")]
+    partial class datainit3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,31 @@ namespace HotelGuestSystem.Migrations
                     b.HasKey("id");
 
                     b.ToTable("GBPConversionRates");
+                });
+
+            modelBuilder.Entity("HotelGuestSystem.Models.RoomServiceModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Imagepath")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("ServiceType")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RoomServiceItems");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -304,9 +329,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENhaltiDUMq9GSPV8U6NMbPvejNfdOajxSWFV9kE0DQrn9oYx1HoBtIu3SPKHjNkGA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOHD3bhZ4BRIULm005FVIO3zxdDubqZ78NT5jm4EgoLs923OrH2wVNkwPwQfBdg0yA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "94da06ca-6e5e-4e24-83df-969446cad493",
+                            SecurityStamp = "d4904fc4-fcb1-4b1c-a3bc-ff5daf134979",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com",
                             Fname = "Bob",

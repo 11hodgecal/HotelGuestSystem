@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HotelGuestSystem.Models
 {
@@ -11,12 +13,12 @@ namespace HotelGuestSystem.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public ServiceTypes ServiceType { get; set; }
+        public string ServiceType { get; set; }
         [DefaultValue(0)]
         public double Price { get; set; }
-
-        public DateTime Due { get; set; }
         
         public string Imagepath { get; set; }
+        [NotMapped]
+        public IFormFile img { get; set; }
     }
 }

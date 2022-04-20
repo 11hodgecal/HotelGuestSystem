@@ -1,0 +1,18 @@
+﻿@model HotelGuestSystem.Models.RoomServiceModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div class ="pt-5 d-flex justify-content-center">
+    <div class="pad">
+        <h4 class="text-center">Are you sure you want to remove @Model.Name from services</h4>
+        <hr />
+        <form class="d-flex justify-content-center" asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn pl-2 btn-danger" /> |
+            <a class="pr-2" asp-action="Index">Back to List</a>
+        </form>
+    </div>
+</div>

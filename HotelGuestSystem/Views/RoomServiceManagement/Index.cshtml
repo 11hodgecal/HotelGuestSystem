@@ -1,0 +1,56 @@
+﻿@model IEnumerable<HotelGuestSystem.Models.RoomServiceModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Services</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Service
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr id="@item.Id">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceType)
+            </td>
+            <td>
+                £ @item.Price
+            </td>
+            <td>
+                    @if(item.Imagepath != null)
+                    {
+                        <img width="250" class="img-thumbnail" src="@item.Imagepath">
+                    }
+                
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit Price</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

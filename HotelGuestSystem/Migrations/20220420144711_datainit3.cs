@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HotelGuestSystem.Migrations
 {
-    public partial class dataini1 : Migration
+    public partial class datainit3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,6 +63,22 @@ namespace HotelGuestSystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_GBPConversionRates", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RoomServiceItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    ServiceType = table.Column<string>(type: "TEXT", nullable: false),
+                    Price = table.Column<double>(type: "REAL", nullable: false),
+                    Imagepath = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RoomServiceItems", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -189,7 +205,7 @@ namespace HotelGuestSystem.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "27b9af34-a133-43e2-8dd2-aef04ddb2b8c", 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "admin@admin.com", false, "Bob", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAENhaltiDUMq9GSPV8U6NMbPvejNfdOajxSWFV9kE0DQrn9oYx1HoBtIu3SPKHjNkGA==", null, false, "94da06ca-6e5e-4e24-83df-969446cad493", "Nobody", false, "admin@admin.com" });
+                values: new object[] { "27b9af34-a133-43e2-8dd2-aef04ddb2b8c", 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "admin@admin.com", false, "Bob", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEOHD3bhZ4BRIULm005FVIO3zxdDubqZ78NT5jm4EgoLs923OrH2wVNkwPwQfBdg0yA==", null, false, "d4904fc4-fcb1-4b1c-a3bc-ff5daf134979", "Nobody", false, "admin@admin.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -263,6 +279,9 @@ namespace HotelGuestSystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "GBPConversionRates");
+
+            migrationBuilder.DropTable(
+                name: "RoomServiceItems");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

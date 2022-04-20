@@ -1,0 +1,56 @@
+﻿@model HotelGuestSystem.Models.RoomServiceModel
+@{
+    ViewData["Title"] = "Create";
+    
+}
+
+
+<div class="row d-flex justify-content-center">
+    <div class="pad">
+        <h4 class="text-center">Create Room Service Item</h4>
+        <hr />
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group pb-2">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group pb-2">
+                <label asp-for="ServiceType" class="control-label">Type</label>
+                @Html.DropDownListFor(model => model.ServiceType,                
+                  new List<SelectListItem> { 
+                       new SelectListItem { Value = "" , Text = "" },
+                       new SelectListItem { Value = "Food" , Text = "Food" },
+                       new SelectListItem { Value = "Drink" , Text = "Drink" },
+                       new SelectListItem { Value = "RoomService" , Text = "Room Service" }
+                    },
+                  new { @class="form-select"})
+                <span asp-validation-for="ServiceType" class="text-danger"></span>
+            </div>
+            <div class="form-group pb-2">
+                <label asp-for="Price" class="control-label">Price(£)</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="Product.ImagePath" class="form-label">Image</label>
+                <input class="form-control" asp-for="img" type="file" id="Product.ImagePath" accept="image/*" name="Product.ImagePath">
+                <span asp-validation-for="Imagepath" class="text-danger"></span>
+            </div>
+            <div class="form-group pb-1 d-flex justify-content-center">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div class="d-flex justify-content-center">
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

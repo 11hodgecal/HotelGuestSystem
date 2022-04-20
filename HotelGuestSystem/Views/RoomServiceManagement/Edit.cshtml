@@ -1,0 +1,36 @@
+﻿@model HotelGuestSystem.Models.RoomServiceModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="row d-flex justify-content-center">
+    <div class="pad">
+        <h4>Change price for @Model.Name</h4>
+        <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input asp-for="Name" type="hidden" />
+            <input asp-for="ServiceType" type="hidden" />
+            <input asp-for="Imagepath" type="hidden" />
+            <div class="form-group pb-2">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex pb-1 justify-content-center">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center">
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

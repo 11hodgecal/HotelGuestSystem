@@ -10,6 +10,7 @@ namespace HotelGuestSystem.Models
         [Required]
         public string Sname { get; set; }
 
+        //gets the full name of a user
         public string Fullname()
         {
             return $"{Fname} {Sname}";
