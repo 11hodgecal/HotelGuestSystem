@@ -9,5 +9,10 @@ namespace HotelGuestSystem.Models
         public string Fname { get; set; }
         [Required]
         public string Sname { get; set; }
+
+        public string Fullname()
+        {
+            return $"{Fname} {Sname}";
+        }
     }
 }
