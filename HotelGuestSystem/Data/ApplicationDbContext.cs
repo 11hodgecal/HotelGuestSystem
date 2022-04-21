@@ -13,6 +13,7 @@ namespace HotelGuestSystem.Data
         public DbSet<CurrentRatesModel> GBPConversionRates { get; set; }
         public DbSet<UserModel> UserModel { get; set; }
         public DbSet<RoomServiceModel> RoomServiceItems { get; set; }
+        public DbSet<BookingModel> Bookings { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

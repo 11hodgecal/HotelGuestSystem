@@ -29,6 +29,7 @@ namespace HotelGuestSystem.Migrations
                     Discriminator = table.Column<string>(type: "TEXT", nullable: false),
                     Fname = table.Column<string>(type: "TEXT", nullable: true),
                     Sname = table.Column<string>(type: "TEXT", nullable: true),
+                    Bookingid = table.Column<int>(type: "INTEGER", nullable: true),
                     UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
@@ -47,6 +48,25 @@ namespace HotelGuestSystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Bookings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CustomerFName = table.Column<string>(type: "TEXT", nullable: true),
+                    CustomerSName = table.Column<string>(type: "TEXT", nullable: true),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    BookingCode = table.Column<string>(type: "TEXT", nullable: true),
+                    BookingStart = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    BookingEnd = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Isactivated = table.Column<bool>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bookings", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -204,8 +224,8 @@ namespace HotelGuestSystem.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "27b9af34-a133-43e2-8dd2-aef04ddb2b8c", 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "admin@admin.com", false, "Bob", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEOHD3bhZ4BRIULm005FVIO3zxdDubqZ78NT5jm4EgoLs923OrH2wVNkwPwQfBdg0yA==", null, false, "d4904fc4-fcb1-4b1c-a3bc-ff5daf134979", "Nobody", false, "admin@admin.com" });
+                columns: new[] { "Id", "AccessFailedCount", "Bookingid", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "27b9af34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "admin@admin.com", false, "Bob", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEM3zVAXxO+eK0YAI1MZmnHTwAKO4iyTlaVdwLHesNknOedvZ+JB86eQWtGKpr7PPPA==", null, false, "7e8f37e2-b337-45d8-8df3-bc4e7342de40", "Nobody", false, "admin@admin.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -276,6 +296,9 @@ namespace HotelGuestSystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Bookings");
 
             migrationBuilder.DropTable(
                 name: "GBPConversionRates");

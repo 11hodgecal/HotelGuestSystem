@@ -16,6 +16,38 @@ namespace HotelGuestSystem.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.16");
 
+            modelBuilder.Entity("HotelGuestSystem.Models.BookingModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("BookingCode")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("BookingEnd")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("BookingStart")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomerFName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomerSName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("Isactivated")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bookings");
+                });
+
             modelBuilder.Entity("HotelGuestSystem.Models.CurrentRatesModel", b =>
                 {
                     b.Property<int>("id")
@@ -306,6 +338,9 @@ namespace HotelGuestSystem.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<int>("Bookingid")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Fname")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -327,11 +362,12 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOHD3bhZ4BRIULm005FVIO3zxdDubqZ78NT5jm4EgoLs923OrH2wVNkwPwQfBdg0yA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEM3zVAXxO+eK0YAI1MZmnHTwAKO4iyTlaVdwLHesNknOedvZ+JB86eQWtGKpr7PPPA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d4904fc4-fcb1-4b1c-a3bc-ff5daf134979",
+                            SecurityStamp = "7e8f37e2-b337-45d8-8df3-bc4e7342de40",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com",
+                            Bookingid = 0,
                             Fname = "Bob",
                             Sname = "Nobody"
                         });

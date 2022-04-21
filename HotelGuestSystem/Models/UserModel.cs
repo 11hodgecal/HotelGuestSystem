@@ -10,6 +10,8 @@ namespace HotelGuestSystem.Models
         [Required]
         public string Sname { get; set; }
 
+        public int Bookingid { get; set; }
+
         //gets the full name of a user
         public string Fullname()
         {

@@ -26,7 +26,7 @@ namespace ItManagementSystem.Controllers
             _roleManager = roleManager;
         }
 
-        //allows the Admin to list the users in the database
+        //allows the admin to list the Staff in the database
         [Authorize(Roles ="Admin")]
         public async Task<IActionResult> Index()
         {
@@ -54,7 +54,7 @@ namespace ItManagementSystem.Controllers
 
             return View(assetModel);
         }
-        //deletes the user with the routed id
+        //deletes the staff member with the routed id
         [Authorize(Roles = "Admin")]
         // POST: Room/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -71,7 +71,7 @@ namespace ItManagementSystem.Controllers
 
 
 
-        //allows the manager to create new users
+        //allows the Admin to create new users
         [Authorize(Roles = "Admin")]
         // GET: Asset/Create
         public IActionResult Create()
@@ -80,7 +80,7 @@ namespace ItManagementSystem.Controllers
             return View();
         }
 
-        //the manager is able to create a new user from user input that corrilates to the user instance then that instance becomes a new user with
+        //the Admin is able to create a new user from user input that corrilates to the user instance then that instance becomes a new user with
         //a default password that can be changed and the adds them to the Support role.
         [Authorize(Roles = "Admin")]
         [HttpPost]
