@@ -83,7 +83,7 @@ namespace HotelGuestSystem.Controllers
                     NewGuest.Bookingid = booking.Id;
                     
                     //creates the guest
-                    var result = await _userManager.CreateAsync(NewGuest, booking.BookingCode);
+                    var result = await _userManager.CreateAsync(NewGuest, "Password123*");
                     await _db.SaveChangesAsync();
                     if (result.Succeeded)
                     {
@@ -93,7 +93,8 @@ namespace HotelGuestSystem.Controllers
                         {
                             //activate the booking and give the user instruction on what to do next
                             booking.Isactivated = true;
-                            ViewBag.success = "Your account has been created with your email and your booking code as the password";
+                            await _db.SaveChangesAsync();
+                            ViewBag.success = "Your account has been created with your email and your password is Password123*";
                             return View();
                         }
                     }

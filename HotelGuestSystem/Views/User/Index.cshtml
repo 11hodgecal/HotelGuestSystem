@@ -1,4 +1,7 @@
-﻿@model IEnumerable<HotelGuestSystem.Models.UserModel>
+﻿@using Microsoft.AspNetCore.Identity
+@inject RoleManager<IdentityRole> RoleManager
+@inject UserManager<UserModel> UserManager
+@model IEnumerable<HotelGuestSystem.Models.UserModel>
 @{
     ViewData["Title"] = "Index";
 }
@@ -32,7 +35,7 @@
         
         @foreach (var item in Model)
         {
-            if(item.UserName != "admin@admin.com")//only show staff
+            if(UserManager.IsInRoleAsync(item,"Staff").Result)//only show staff
             { 
                 <tr id="@item.Fname">
                     <td>
