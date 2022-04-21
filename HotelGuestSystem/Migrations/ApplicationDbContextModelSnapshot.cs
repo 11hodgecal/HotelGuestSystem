@@ -345,6 +345,9 @@ namespace HotelGuestSystem.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PreferedCurrency")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Sname")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -362,9 +365,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEM3zVAXxO+eK0YAI1MZmnHTwAKO4iyTlaVdwLHesNknOedvZ+JB86eQWtGKpr7PPPA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFDa8anqbZLH+MFe3WTjHufWRwwkw6M5RCKi5OxgUP8NgzS3D88y23dpyeXu7ld9Yw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7e8f37e2-b337-45d8-8df3-bc4e7342de40",
+                            SecurityStamp = "dbe67d03-56e0-4743-92e5-0696a7f6f366",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com",
                             Bookingid = 0,

@@ -55,7 +55,6 @@
             }
             
         }
-        //manual test
         public static async Task CheckRates()
         {
 

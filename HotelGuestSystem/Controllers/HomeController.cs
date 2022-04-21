@@ -31,16 +31,16 @@ namespace HotelGuestSystem.Controllers
         }
         //allows a Guest to check into the system with a booking code
         [HttpPost]
-        public async Task<IActionResult> Index(string code)
+        public async Task<IActionResult> Index(CheckinViewModel Checkin)
         {
             //checks whether the booking code is present and gives an error
-            if (code == null)
+            if (Checkin.code == null)
             {
                 ViewBag.error = "Please enter a booking code";
                 return View();
             }
             //checks whether the booking code has a correct ammount of characters and gives an error
-            if (code.Length != 10)
+            if (Checkin.code.Length != 10)
             {
                 ViewBag.error = "Please enter a 10 character long booking code";
                 return View();
@@ -50,7 +50,7 @@ namespace HotelGuestSystem.Controllers
             foreach (var booking in bookings)
             {
                 //finds the specific booking matching the user input
-                if(booking.BookingCode == code)
+                if(booking.BookingCode == Checkin.code)
                 {
                     //send the user an error if they are not expected
                     var cancheckin = DateTime.Compare(DateTime.Now, booking.BookingStart);
@@ -79,6 +79,7 @@ namespace HotelGuestSystem.Controllers
                     NewGuest.Email = booking.Email;
                     NewGuest.Sname = booking.CustomerSName;
                     NewGuest.UserName = booking.Email;
+                    NewGuest.PreferedCurrency = Checkin.currency;
                     //attach the booking to the user
                     NewGuest.Bookingid = booking.Id;
                     
@@ -98,6 +99,11 @@ namespace HotelGuestSystem.Controllers
                             return View();
                         }
                     }
+                }
+                else
+                {
+                    ViewBag.error = $"Invalid code";
+                    return View();
                 }
             }
             
