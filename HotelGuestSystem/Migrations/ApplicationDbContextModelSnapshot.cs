@@ -302,16 +302,6 @@ namespace HotelGuestSystem.Migrations
                         {
                             UserId = "27b9af34-a133-43e2-8dd2-aef04ddb2b8c",
                             RoleId = "78bf8cbe-1f70-4d6d-890b-247bc57e6150"
-                        },
-                        new
-                        {
-                            UserId = "27b9af34-a133-43e2-8dd2-aef04ddb2b8c",
-                            RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02"
-                        },
-                        new
-                        {
-                            UserId = "27b9af34-a133-43e2-8dd2-aef04ddb2b8c",
-                            RoleId = "709a40af-4a4e-40b6-887b-d30dcdf07030"
                         });
                 });
 
@@ -365,9 +355,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFDa8anqbZLH+MFe3WTjHufWRwwkw6M5RCKi5OxgUP8NgzS3D88y23dpyeXu7ld9Yw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDZS6apsC76oC81pmB6i7/L3ee/N7O3/mxFvXCW2TGWK/lVr7PqQozAEo9GFGcA77g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dbe67d03-56e0-4743-92e5-0696a7f6f366",
+                            SecurityStamp = "32893594-2b9e-4d2f-9237-6fb469fd916d",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com",
                             Bookingid = 0,

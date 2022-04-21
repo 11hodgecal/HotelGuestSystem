@@ -100,13 +100,10 @@ namespace HotelGuestSystem.Controllers
                         }
                     }
                 }
-                else
-                {
-                    ViewBag.error = $"Invalid code";
-                    return View();
-                }
+                    
             }
-            
+
+            ViewBag.error = "Invalid code";
             return View();
         }
 

@@ -94,22 +94,6 @@ namespace HotelGuestSystem.Data
                     UserId = "27b9af34-a133-43e2-8dd2-aef04ddb2b8c"
                 });
 
-            builder.Entity<IdentityUserRole<string>>().HasData(
-
-             new IdentityUserRole<string>()
-             {
-                 RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02",
-                 UserId = "27b9af34-a133-43e2-8dd2-aef04ddb2b8c"
-             });
-
-            builder.Entity<IdentityUserRole<string>>().HasData(
-
-             new IdentityUserRole<string>()
-             {
-                 RoleId = "709a40af-4a4e-40b6-887b-d30dcdf07030",
-                 UserId = "27b9af34-a133-43e2-8dd2-aef04ddb2b8c"
-             });
-
         }
     }
 }
