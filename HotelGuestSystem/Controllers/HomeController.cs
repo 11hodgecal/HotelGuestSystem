@@ -1,5 +1,6 @@
 ﻿using HotelGuestSystem.Data;
 using HotelGuestSystem.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,16 +18,32 @@ namespace HotelGuestSystem.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _db;
         private readonly UserManager<UserModel> _userManager;
+        private readonly SignInManager<UserModel> _signInManager;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db, UserManager<UserModel> userManager)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db, UserManager<UserModel> userManager, SignInManager<UserModel> signInManager)
         {
             _logger = logger;
             _db = db;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         public IActionResult Index()
         {
+            if (_signInManager.IsSignedIn(User))
+            {
+                //redirects the admin to the user manager on log in
+                if (User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("Index", "User");
+                }
+                //redirects the customer to the request manager on log in 
+                if (User.IsInRole("Customer"))
+                {
+                    return RedirectToAction("Index", "CustomerRoomRequest");
+                }
+            }
+            
             return View();
         }
         //allows a Guest to check into the system with a booking code

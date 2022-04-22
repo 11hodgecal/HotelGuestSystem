@@ -1,0 +1,32 @@
+﻿@model List<CustomerServiceViewModel>;
+
+@{
+    
+}
+<form class="pb-3 d-flex justify-content-center" method="post" id="RoomServiceFilter">
+    <select class=" pad form-select"  name="filter" onchange="Submit()">
+        <option value="@ViewBag.Filter">Current: @ViewBag.Filter</option>
+        <option value="RoomService">Room Service</option>
+        <option value="Food">Food</option>
+        <option value="Drink">Drink</option>
+    </select> 
+    
+</form>
+<div class="row">
+    
+
+    @foreach(var item in Model)
+    {
+            <div class="col-md-4 pb-2 d-flex justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="@item.img" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h4>@item.Name</h4>
+                        <h5>Price: @item.PreferedCurPrice</h5>
+                        <a href="#" class="btn btn-primary">Request</a>
+                    </div>
+                </div>
+            </div>
+        
+     }
+</div>
