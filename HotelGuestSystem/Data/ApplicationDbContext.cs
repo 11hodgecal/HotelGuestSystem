@@ -26,6 +26,7 @@ namespace HotelGuestSystem.Data
             SeedAdmin(builder);
             SeedRoles(builder);
             SeedUserRoles(builder);
+            SeedCustomer(builder);
         }
 
         private void SeedRoles(ModelBuilder builder)
