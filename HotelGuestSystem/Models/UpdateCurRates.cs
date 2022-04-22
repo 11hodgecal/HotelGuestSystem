@@ -1,4 +1,4 @@
-﻿namespace HotelGuestSystem.Models
+﻿ namespace HotelGuestSystem.Models
 {
     using OpenQA.Selenium.Chrome;
     using OpenQA.Selenium;
@@ -55,42 +55,26 @@
             }
             
         }
-        public static async Task CheckRates()
+        //create unit tests
+        public static async Task CheckRates(ApplicationDbContext db)
         {
 
-            //initalizes the database
-            ApplicationDbContext _db;
-            var options = new DbContextOptionsBuilder<ApplicationDbContext>().
-                UseSqlite("DataSource=C:\\Users\\callu\\Desktop\\HotelGuestSystem\\app.db").Options;
-            _db = new ApplicationDbContext(options);
-            _db.Database.EnsureCreated();
-            await _db.SaveChangesAsync();
-
-            
-            using (_db)
+            //try update the currency rates
+            try
             {
-                //try update the currency rates
-                try
+                var rates = await db.GBPConversionRates.ToListAsync();
+                //if the currency rates are set to update update them
+                var needupdate = DateTime.Compare(DateTime.Now, rates[0].NextUpdate);
+                if (needupdate == 1)
                 {
-                    var rates = await _db.GBPConversionRates.ToListAsync();
-                    //if the currency rates are set to update update them
-                    var needupdate = DateTime.Compare(DateTime.Now, rates[0].NextUpdate);
-                    if (needupdate == 1)
-                    {
-                        await Update(_db);
-                    }
+                    await Update(db);
+                }
                     
-                }
-                //if they dont exist make them
-                catch (Exception)
-                {
-                    await Update(_db);
-                }
-                
-                
-                
-
-                
+            }
+            //if they dont exist make them
+            catch (Exception)
+            {
+                await Update(db);
             }
             
         }

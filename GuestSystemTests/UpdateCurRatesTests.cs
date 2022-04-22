@@ -30,6 +30,38 @@ namespace GuestSystemTests
             _db.Database.EnsureCreated();
 
         }
+        private async Task CreateMocDBWithRatesAndExpiredDate()
+        {
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
+            _db = new ApplicationDbContext(options);
+            var newrates = new CurrentRatesModel();
+            newrates.GDPToUSDRate = 1.1;
+            newrates.GDPToEuroRate = 1.2;
+            newrates.GDPToYenRate = 1.3;
+            newrates.NextUpdate = DateTime.Now.AddDays(-1);
+            _db.GBPConversionRates.Add(newrates);
+
+
+            await _db.SaveChangesAsync();
+            _db.Database.EnsureCreated();
+
+        }
+        private async Task CreateMocDBWithRatesAndFreshDate()
+        {
+            var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
+            _db = new ApplicationDbContext(options);
+            var newrates = new CurrentRatesModel();
+            newrates.GDPToUSDRate = 1.1;
+            newrates.GDPToEuroRate = 1.2;
+            newrates.GDPToYenRate = 1.3;
+            newrates.NextUpdate = DateTime.Now.AddDays(1);
+            _db.GBPConversionRates.Add(newrates);
+
+
+            await _db.SaveChangesAsync();
+            _db.Database.EnsureCreated();
+
+        }
         private async Task CreateMocDBNoRates()
         {
             var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
@@ -73,6 +105,30 @@ namespace GuestSystemTests
             {
                 Assert.Pass();
             }
+        }
+        [Test]
+        public async Task RatesDoesNotUpdateWhenNotExpired()
+        {
+            //Arrange
+            await CreateMocDBWithRatesAndFreshDate();
+            var Expected = 1.1;
+            //Act
+            await UpdateCurRates.CheckRates(_db);
+            var Actual = _db.GBPConversionRates.FirstOrDefaultAsync().Result.GDPToUSDRate;
+            //assert
+            Assert.AreEqual(Expected, Actual);
+        }
+        [Test]
+        public async Task RatesUpdatesWhenExpired()
+        {
+            //Arrange
+            await CreateMocDBWithRatesAndExpiredDate();
+            var Expected = 1.1;
+            //Act
+            await UpdateCurRates.CheckRates(_db);
+            var Actual = _db.GBPConversionRates.FirstOrDefaultAsync().Result.GDPToUSDRate;
+            //Assert
+            Assert.AreNotEqual(Expected, Actual);
         }
     }
 }
