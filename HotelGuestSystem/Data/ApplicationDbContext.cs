@@ -83,6 +83,25 @@ namespace HotelGuestSystem.Data
             builder.Entity<UserModel>().HasData(user);
 
         }
+        private void SeedCustomer(ModelBuilder builder)
+        {
+            PasswordHasher<UserModel> hasher = new PasswordHasher<UserModel>();
+            UserModel user = new UserModel();
+            user.Id = "27b9df34-a133-43e2-8dd2-aef04ddb2b8c";
+            user.UserName = "Test@Test.com";
+            user.NormalizedUserName = "Test@Test.com".ToUpper();
+            user.NormalizedEmail = "Test@Test.com".ToUpper();
+            user.Email = "Test@Test.com";
+            user.Fname = "Bob";
+            user.Sname = "Nobody";
+            user.LockoutEnabled = false;
+            user.ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29";
+            user.PasswordHash = hasher.HashPassword(user, "Admin123!");
+            user.PreferedCurrency = "Yen";
+
+            builder.Entity<UserModel>().HasData(user);
+
+        }
 
         private void SeedUserRoles(ModelBuilder builder)
         {
@@ -92,6 +111,11 @@ namespace HotelGuestSystem.Data
                 {
                     RoleId = "78bf8cbe-1f70-4d6d-890b-247bc57e6150",
                     UserId = "27b9af34-a133-43e2-8dd2-aef04ddb2b8c"
+                },
+                new IdentityUserRole<string>()
+                {
+                    RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02",
+                    UserId = "27b9df34-a133-43e2-8dd2-aef04ddb2b8c"
                 });
 
         }
