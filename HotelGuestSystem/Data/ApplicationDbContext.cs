@@ -28,6 +28,7 @@ namespace HotelGuestSystem.Data
             SeedRoles(builder);
             SeedUserRoles(builder);
             SeedCustomer(builder);
+            SeedServices(builder);
         }
 
         private void SeedRoles(ModelBuilder builder)
@@ -65,6 +66,39 @@ namespace HotelGuestSystem.Data
                }
                );
         }
+        private void SeedServices(ModelBuilder builder)
+        {
+            builder.Entity<RoomServiceModel>().HasData(
+                new RoomServiceModel()
+                {
+                    Id = 1,
+                    Name = "Toilet Roll",
+                    Price = 0,
+                    ServiceType = "RoomService"
+                }
+                ); 
+
+            builder.Entity<RoomServiceModel>().HasData(
+               new RoomServiceModel()
+               {
+                   Id = 2,
+                   Name = "Fresh Towels",
+                   Price = 0,
+                   ServiceType = "RoomService"
+               }
+               );
+
+            builder.Entity<RoomServiceModel>().HasData(
+               new RoomServiceModel()
+               {
+                   Id = 3,
+                   Name = "Change Sheets",
+                   Price = 0,
+                   ServiceType = "RoomService"
+               }
+               );
+        }
+
 
 
         private void SeedAdmin(ModelBuilder builder)
