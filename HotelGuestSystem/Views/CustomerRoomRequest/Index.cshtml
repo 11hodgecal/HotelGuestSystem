@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <h4>@item.Name</h4>
                         <h5>Price: @item.PreferedCurPrice</h5>
-                        <a href="#" class="btn btn-primary">Request</a>
+                        <a  asp-action ="Request" asp-route-ItemID="@item.Id" class="btn btn-primary">Request</a>
                     </div>
                 </div>
             </div>

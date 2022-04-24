@@ -1,0 +1,14 @@
+﻿@model RequestModel
+
+
+<div class="row d-flex justify-content-center">
+    <form class="pad" method ="post">
+        <h3 class="text-center">Are you sure you want <br/>@ViewBag.ItemName</h3>
+        <hr />
+        <input asp-for="ItemID" value="@ViewBag.ItemID" type="hidden" />
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-primary" type="submit">Make Request</button>|
+            <a asp-action="Index"> Back</a>
+        </div>
+    </form>
+</div>

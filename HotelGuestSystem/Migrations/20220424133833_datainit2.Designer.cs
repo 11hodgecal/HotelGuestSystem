@@ -3,14 +3,16 @@ using System;
 using HotelGuestSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HotelGuestSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220424133833_datainit2")]
+    partial class datainit2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,12 +89,15 @@ namespace HotelGuestSystem.Migrations
                     b.Property<int>("ItemID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("requestmade")
+                    b.Property<DateTime>("WantBy")
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("WantsASAP")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.ToTable("request");
+                    b.ToTable("Requests");
                 });
 
             modelBuilder.Entity("HotelGuestSystem.Models.RoomServiceModel", b =>
@@ -384,9 +389,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEJx9TtqBYLzDJAf2QWDkiMpkNHptSsTB/EAs8BQ7R8w/5ulY0p7z3NRVs1f5wI78g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKm6YkvCq1c+w2tVfVx/Kw+h0GSqzXfPLyU5bRmivMltU9soJaLXFzYmqG0Na+LPIQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ac61435a-d995-410c-9d72-a33e8cf9dd8e",
+                            SecurityStamp = "5467dc82-cf43-4865-bdab-d097d8880dd9",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com",
                             Bookingid = 0,
@@ -403,9 +408,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.COM",
                             NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAnfn+ZDZ7u4HAeN/1GRHLz5Zt5dlYAbnk8viYwWQh75iuj15T7R8svqSDgTBz6pOg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGOUjWkG26NA7jWSPYPConAczl+aWLuDdx21u6kKO+zwuU0Iw52+kK5OLsQoHHpWhw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d4ffaad0-aedd-49bb-8ebc-0f7495b2efc6",
+                            SecurityStamp = "169ccdb1-714e-442b-b0b8-3834d0f5ef74",
                             TwoFactorEnabled = false,
                             UserName = "Test@Test.com",
                             Bookingid = 0,
