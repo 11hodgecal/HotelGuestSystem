@@ -26,7 +26,7 @@ namespace HotelGuestSystem.Controllers
         public IActionResult Complete(int id)
         {
             //complete the request
-            ListStaffRequests.CompleteRequest(id, _db);
+            ListStaffRequests.CompleteRequestAsync(id, _db);
             return RedirectToAction("Index");
         }
     }

@@ -16,6 +16,33 @@ namespace HotelGuestSystem.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.16");
 
+            modelBuilder.Entity("HotelGuestSystem.Models.BillItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CustomerId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ItemName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BillItems");
+                });
+
             modelBuilder.Entity("HotelGuestSystem.Models.BookingModel", b =>
                 {
                     b.Property<int>("Id")
@@ -407,9 +434,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAED0EkqRq8BX1G/N3Q8XVCL6O16p3lFrOWdTIs7u++LnJJEPzGJTweNarrO9wDQ0g/A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDb1NTsmn7seQAuWREN09fQXD5JiKRBnWIAqBB9sugXuL1FYBPEKRN+s/vU63M53ug==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "33fdf50c-383e-4c00-888d-bc31776abab0",
+                            SecurityStamp = "1b0b8d7b-471c-4aab-93f5-c2aace30bd6f",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com",
                             Bookingid = 0,
@@ -426,9 +453,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.COM",
                             NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGvVzNHR/K6RhD2ePW+TRTrFqqZKowO4iOtmkA1AWpNGYxsFrp/Rz9c5udfnbDwS3A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOpbcJaZ1PKoOmlQA3j0xtToXGqpQS7TRQchX96hREZ9Xildmiv3CBiqiuSfRVMduw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7d38c299-6dd3-402e-9298-82d122ee81cb",
+                            SecurityStamp = "96f04254-6ceb-4e29-bec2-07cb4ec34ded",
                             TwoFactorEnabled = false,
                             UserName = "Test@Test.com",
                             Bookingid = 0,

@@ -46,13 +46,16 @@ namespace HotelGuestSystem.Models
             //returns the to the view apart from any that are already delivered
             return ConvertedRequest.Where(s=> s.IsDelivered == false).OrderBy(s=> s.RequestMade).ToList();
         }
-        public static void CompleteRequest(int requestid, ApplicationDbContext db)
+        public static async Task CompleteRequest(int requestid, ApplicationDbContext db)
         {
             //gets the request with the selected id
             var CompletedRequest = db.request.Where(s => s.Id == requestid).FirstOrDefault();
+
+            await UpdateReceipt.Additem(CompletedRequest, db);
+
             //Marks the request as being completed
             CompletedRequest.Delivered = true;
-            db.SaveChangesAsync();  
+            await db.SaveChangesAsync();  
             
         }
     }

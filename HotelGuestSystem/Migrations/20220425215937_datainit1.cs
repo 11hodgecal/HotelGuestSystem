@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HotelGuestSystem.Migrations
 {
-    public partial class datainit : Migration
+    public partial class datainit1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,6 +49,23 @@ namespace HotelGuestSystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BillItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CustomerId = table.Column<string>(type: "TEXT", nullable: false),
+                    Type = table.Column<string>(type: "TEXT", nullable: true),
+                    ItemName = table.Column<string>(type: "TEXT", nullable: true),
+                    Price = table.Column<double>(type: "REAL", nullable: false),
+                    Quantity = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BillItems", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -242,12 +259,12 @@ namespace HotelGuestSystem.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Bookingid", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PreferedCurrency", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "27b9af34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "admin@admin.com", false, "Bob", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAED0EkqRq8BX1G/N3Q8XVCL6O16p3lFrOWdTIs7u++LnJJEPzGJTweNarrO9wDQ0g/A==", null, false, null, "33fdf50c-383e-4c00-888d-bc31776abab0", "Nobody", false, "admin@admin.com" });
+                values: new object[] { "27b9af34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "admin@admin.com", false, "Bob", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEDb1NTsmn7seQAuWREN09fQXD5JiKRBnWIAqBB9sugXuL1FYBPEKRN+s/vU63M53ug==", null, false, null, "1b0b8d7b-471c-4aab-93f5-c2aace30bd6f", "Nobody", false, "admin@admin.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Bookingid", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PreferedCurrency", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "27b9df34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test@Test.com", false, "Bob", false, null, "TEST@TEST.COM", "TEST@TEST.COM", "AQAAAAEAACcQAAAAEGvVzNHR/K6RhD2ePW+TRTrFqqZKowO4iOtmkA1AWpNGYxsFrp/Rz9c5udfnbDwS3A==", null, false, "Yen", "7d38c299-6dd3-402e-9298-82d122ee81cb", "Nobody", false, "Test@Test.com" });
+                values: new object[] { "27b9df34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test@Test.com", false, "Bob", false, null, "TEST@TEST.COM", "TEST@TEST.COM", "AQAAAAEAACcQAAAAEOpbcJaZ1PKoOmlQA3j0xtToXGqpQS7TRQchX96hREZ9Xildmiv3CBiqiuSfRVMduw==", null, false, "Yen", "96f04254-6ceb-4e29-bec2-07cb4ec34ded", "Nobody", false, "Test@Test.com" });
 
             migrationBuilder.InsertData(
                 table: "RoomServiceItems",
@@ -328,6 +345,9 @@ namespace HotelGuestSystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "BillItems");
 
             migrationBuilder.DropTable(
                 name: "Bookings");
