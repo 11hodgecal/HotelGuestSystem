@@ -42,6 +42,11 @@ namespace HotelGuestSystem.Controllers
                 {
                     return RedirectToAction("Index", "CustomerRoomRequest");
                 }
+                //redirects the Staff to the customer requests on log in 
+                if (User.IsInRole("Staff"))
+                {
+                    return RedirectToAction("Index", "StaffRespond");
+                }
             }
             
             return View();

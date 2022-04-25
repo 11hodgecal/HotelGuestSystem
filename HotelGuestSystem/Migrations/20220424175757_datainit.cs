@@ -87,6 +87,22 @@ namespace HotelGuestSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "request",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CustomerID = table.Column<string>(type: "TEXT", nullable: false),
+                    ItemID = table.Column<int>(type: "INTEGER", nullable: false),
+                    requestmade = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Delivered = table.Column<bool>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_request", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RoomServiceItems",
                 columns: table => new
                 {
@@ -226,12 +242,27 @@ namespace HotelGuestSystem.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Bookingid", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PreferedCurrency", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "27b9af34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "admin@admin.com", false, "Bob", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEHm/NgZxfXN5RUndiZfI1nWgG1RzgS/5H1d05GDVAWrDwe3N7QuUs5C6rujrpso1+w==", null, false, null, "0aff56fe-02d5-4fa1-95b7-9b1a3007d8e7", "Nobody", false, "admin@admin.com" });
+                values: new object[] { "27b9af34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "admin@admin.com", false, "Bob", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAED0EkqRq8BX1G/N3Q8XVCL6O16p3lFrOWdTIs7u++LnJJEPzGJTweNarrO9wDQ0g/A==", null, false, null, "33fdf50c-383e-4c00-888d-bc31776abab0", "Nobody", false, "admin@admin.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Bookingid", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PreferedCurrency", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "27b9df34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test@Test.com", false, "Bob", false, null, "TEST@TEST.COM", "TEST@TEST.COM", "AQAAAAEAACcQAAAAEKo7eXZorM1J2jbzt2PjSyeMhD8zOAuniSpYnSKKTOVcjVReAtix63gGhGxLjfy8rA==", null, false, "Yen", "3480109c-a7ae-4121-9def-aa9ada9ef56c", "Nobody", false, "Test@Test.com" });
+                values: new object[] { "27b9df34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test@Test.com", false, "Bob", false, null, "TEST@TEST.COM", "TEST@TEST.COM", "AQAAAAEAACcQAAAAEGvVzNHR/K6RhD2ePW+TRTrFqqZKowO4iOtmkA1AWpNGYxsFrp/Rz9c5udfnbDwS3A==", null, false, "Yen", "7d38c299-6dd3-402e-9298-82d122ee81cb", "Nobody", false, "Test@Test.com" });
+
+            migrationBuilder.InsertData(
+                table: "RoomServiceItems",
+                columns: new[] { "Id", "Imagepath", "Name", "Price", "ServiceType" },
+                values: new object[] { 1, null, "Toilet Roll", 0.0, "RoomService" });
+
+            migrationBuilder.InsertData(
+                table: "RoomServiceItems",
+                columns: new[] { "Id", "Imagepath", "Name", "Price", "ServiceType" },
+                values: new object[] { 2, null, "Fresh Towels", 0.0, "RoomService" });
+
+            migrationBuilder.InsertData(
+                table: "RoomServiceItems",
+                columns: new[] { "Id", "Imagepath", "Name", "Price", "ServiceType" },
+                values: new object[] { 3, null, "Change Sheets", 0.0, "RoomService" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -303,6 +334,9 @@ namespace HotelGuestSystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "GBPConversionRates");
+
+            migrationBuilder.DropTable(
+                name: "request");
 
             migrationBuilder.DropTable(
                 name: "RoomServiceItems");

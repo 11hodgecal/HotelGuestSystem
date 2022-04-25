@@ -1,0 +1,14 @@
+﻿@model List<StaffRequestViewModel>;
+<div class = "d-flex justify-content-center">
+    <div class = "pad">
+    @foreach(var item in Model){
+            <div class="pb-2">
+                <h4 class="text-center">@item.CustomerName requested for: <br/> @item.ItemName <br/> at @item.RequestMadestring</h4>
+                <div class="d-flex justify-content-center">
+                    <a asp-route-id ="@item.RequestId" asp-action="Complete" class="btn-primary btn">Completed</a>
+                </div>
+                <hr/>
+            </div>
+    }
+    </div>
+</div>

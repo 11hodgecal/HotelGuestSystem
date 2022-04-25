@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelGuestSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220424143653_datainit3")]
-    partial class datainit3
+    [Migration("20220424175757_datainit")]
+    partial class datainit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,6 +89,9 @@ namespace HotelGuestSystem.Migrations
                     b.Property<int>("ItemID")
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("requestmade")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("request");
@@ -117,6 +120,29 @@ namespace HotelGuestSystem.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RoomServiceItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Toilet Roll",
+                            Price = 0.0,
+                            ServiceType = "RoomService"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Fresh Towels",
+                            Price = 0.0,
+                            ServiceType = "RoomService"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Change Sheets",
+                            Price = 0.0,
+                            ServiceType = "RoomService"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -383,9 +409,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENAHxG1Nk/J5XlUbkEQaKqpcK9BfsJZv9bC/ogBYdBBSq7iXj8mHRHa48vT0LfmfRQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAED0EkqRq8BX1G/N3Q8XVCL6O16p3lFrOWdTIs7u++LnJJEPzGJTweNarrO9wDQ0g/A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fc81f46a-3e05-40ea-883f-d5e1c0b078ad",
+                            SecurityStamp = "33fdf50c-383e-4c00-888d-bc31776abab0",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com",
                             Bookingid = 0,
@@ -402,9 +428,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.COM",
                             NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELeyK1X2DmhyYRgn8jyeNNsvaX61ZSd+l7lJunoxfKiYROYCaWz9Dn10PTjFcxYHtA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGvVzNHR/K6RhD2ePW+TRTrFqqZKowO4iOtmkA1AWpNGYxsFrp/Rz9c5udfnbDwS3A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2c8ae795-70d2-409d-8e82-234c38851dab",
+                            SecurityStamp = "7d38c299-6dd3-402e-9298-82d122ee81cb",
                             TwoFactorEnabled = false,
                             UserName = "Test@Test.com",
                             Bookingid = 0,

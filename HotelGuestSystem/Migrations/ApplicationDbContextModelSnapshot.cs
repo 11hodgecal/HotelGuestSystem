@@ -118,6 +118,29 @@ namespace HotelGuestSystem.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RoomServiceItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Toilet Roll",
+                            Price = 0.0,
+                            ServiceType = "RoomService"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Fresh Towels",
+                            Price = 0.0,
+                            ServiceType = "RoomService"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Change Sheets",
+                            Price = 0.0,
+                            ServiceType = "RoomService"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -384,9 +407,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEJx9TtqBYLzDJAf2QWDkiMpkNHptSsTB/EAs8BQ7R8w/5ulY0p7z3NRVs1f5wI78g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAED0EkqRq8BX1G/N3Q8XVCL6O16p3lFrOWdTIs7u++LnJJEPzGJTweNarrO9wDQ0g/A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ac61435a-d995-410c-9d72-a33e8cf9dd8e",
+                            SecurityStamp = "33fdf50c-383e-4c00-888d-bc31776abab0",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com",
                             Bookingid = 0,
@@ -403,9 +426,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.COM",
                             NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAnfn+ZDZ7u4HAeN/1GRHLz5Zt5dlYAbnk8viYwWQh75iuj15T7R8svqSDgTBz6pOg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGvVzNHR/K6RhD2ePW+TRTrFqqZKowO4iOtmkA1AWpNGYxsFrp/Rz9c5udfnbDwS3A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d4ffaad0-aedd-49bb-8ebc-0f7495b2efc6",
+                            SecurityStamp = "7d38c299-6dd3-402e-9298-82d122ee81cb",
                             TwoFactorEnabled = false,
                             UserName = "Test@Test.com",
                             Bookingid = 0,
