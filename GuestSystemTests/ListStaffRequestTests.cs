@@ -86,10 +86,17 @@ namespace GuestSystemTests
             await CreateMocDBForCompleteRequest();
             //act
             var requests = await _db.request.ToListAsync();
-            var RequestViews = ListStaffRequests.CreateView(requests,_db).FirstOrDefault();
-            
+            var RequestViews = ListStaffRequests.CreateView(requests,_db);
+            var InactiveRequestPresent = false;
+            foreach(var requestView in RequestViews)
+            {
+                if(requestView.IsDelivered == true)
+                {
+                    InactiveRequestPresent = true;
+                }
+            }
             //assert
-            Assert.IsFalse(RequestViews.IsDelivered);
+            Assert.IsFalse(InactiveRequestPresent);
         }
     }
 }
