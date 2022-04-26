@@ -23,7 +23,7 @@ namespace HotelGuestSystem.Controllers
             var view = ListStaffRequests.CreateView(requests, _db);
             return View(view);
         }
-        public async Task<IActionResult> CompleteAsync(int id)
+        public async Task<IActionResult> Complete(int id)
         {
             //complete the request
             await ListStaffRequests.CompleteRequest(id, _db);

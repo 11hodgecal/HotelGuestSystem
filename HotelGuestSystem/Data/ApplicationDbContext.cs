@@ -15,6 +15,7 @@ namespace HotelGuestSystem.Data
         public DbSet<RoomServiceModel> RoomServiceItems { get; set; }
         public DbSet<BookingModel> Bookings { get; set; }
         public DbSet<RequestModel> request { get; set; }
+        public DbSet<BillItem> BillItems { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
