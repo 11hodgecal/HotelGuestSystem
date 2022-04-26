@@ -13,17 +13,7 @@ namespace GuestSystemTests
     public class ListStaffRequestTests
     {
         private ApplicationDbContext _db;
-        private async Task CreateMocDBForCompleteRequest()
-        {
-            var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
-            _db = new ApplicationDbContext(options);
-            var request = new RequestModel();
-            request.Id = 1;
-            request.Delivered = false;
-            _db.request.Add(request);
-            await _db.SaveChangesAsync();
-            _db.Database.EnsureCreated();
-        }
+        
         private async Task CreateMocDBForCreateView()
         {
             var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString()).Options;
@@ -49,6 +39,7 @@ namespace GuestSystemTests
                 Price = 0,
                 ServiceType = "RoomService"
             };
+            _db.RoomServiceItems.Add(service);
 
             var request = new RequestModel();
             request.Id = 1;
@@ -71,9 +62,9 @@ namespace GuestSystemTests
         public async Task CompleteRequest()
         {
             //arrange
-            await CreateMocDBForCompleteRequest();
+            await CreateMocDBForCreateView();
             //act
-            ListStaffRequests.CompleteRequest(1, _db);
+            await ListStaffRequests.CompleteRequest(1, _db);
             var result = _db.request.FirstOrDefault();
             //assert
             Assert.IsTrue(result.Delivered);
@@ -83,7 +74,7 @@ namespace GuestSystemTests
         public async Task CreateViewReturnsOnlyActiveRequests()
         {
             //arrange
-            await CreateMocDBForCompleteRequest();
+            await CreateMocDBForCreateView();
             //act
             var requests = await _db.request.ToListAsync();
             var RequestViews = ListStaffRequests.CreateView(requests,_db);
