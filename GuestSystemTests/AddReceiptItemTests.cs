@@ -48,7 +48,7 @@ namespace GuestSystemTests
             {
                 Id = 3,
                 Name = "Change Sheets",
-                Price = 0,
+                Price = 1,
                 ServiceType = "RoomService"
             };
             _db.RoomServiceItems.Add(service);
@@ -136,6 +136,35 @@ namespace GuestSystemTests
 
             //Assert
             Assert.AreEqual(expected, item.Quantity);
+
+        }
+        [Test]
+        public async Task PriceUpdatesIfBillitemExists()
+        {
+            //Arrange
+            await CreateMocDB();
+            var request = new RequestModel();
+            request.Id = 1;
+            request.CustomerID = "27b9df34-a133-43e2-8dd2-aef04ddb2b8c";
+            request.ItemID = 3;
+            request.Delivered = false;
+
+            var request2 = new RequestModel();
+            request.Id = 2;
+            request.CustomerID = "27b9df34-a133-43e2-8dd2-aef04ddb2b8c";
+            request.ItemID = 3;
+            request.Delivered = false;
+
+            _db.request.Add(request);
+            await _db.SaveChangesAsync();
+            var expected = 2;
+            //Act
+            await UpdateReceipt.Additem(request, _db);
+            await UpdateReceipt.Additem(request, _db);
+            var item = _db.BillItems.FirstOrDefaultAsync().Result;
+
+            //Assert
+            Assert.AreEqual(expected, item.Price);
 
         }
     }
