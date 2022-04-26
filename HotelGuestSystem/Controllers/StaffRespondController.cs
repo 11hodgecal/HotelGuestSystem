@@ -15,7 +15,7 @@ namespace HotelGuestSystem.Controllers
         {
             _db = db;
         }
-        [Authorize("Staff")]
+        [Authorize(Roles ="Staff")]
         public async Task<IActionResult> Index()
         {
             //gets all requests
@@ -24,7 +24,7 @@ namespace HotelGuestSystem.Controllers
             var view = ListStaffRequests.CreateView(requests, _db);
             return View(view);
         }
-        [Authorize("Staff")]
+        [Authorize(Roles = "Staff")]
         public async Task<IActionResult> Complete(int id)
         {
             //complete the request
