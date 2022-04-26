@@ -10,14 +10,15 @@ namespace HotelGuestSystem.Models
         private static async Task AddOneToQuantity(RequestModel Request, ApplicationDbContext db)
         {
             //gets the attached items name
-            var ItemName = db.RoomServiceItems.Where(s => s.Id == Request.ItemID).FirstOrDefaultAsync().Result.Name;
+            var Item = await db.RoomServiceItems.Where(s => s.Id == Request.ItemID).FirstOrDefaultAsync();
 
             //gets the existing billing item and changes the quantity
             var billitems = await db.BillItems.Where(s=>s.CustomerId == Request.CustomerID).ToListAsync();
             foreach(var billitem in billitems)
             {
-                if(billitem.ItemName == ItemName)
+                if(billitem.ItemName == Item.Name)
                 {
+                    billitem.Price += Item.Price;
                     billitem.Quantity += 1;
                 }
             }
