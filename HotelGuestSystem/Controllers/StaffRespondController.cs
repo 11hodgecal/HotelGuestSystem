@@ -1,5 +1,6 @@
 ﻿using HotelGuestSystem.Data;
 using HotelGuestSystem.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace HotelGuestSystem.Controllers
         {
             _db = db;
         }
-
+        [Authorize("Staff")]
         public async Task<IActionResult> Index()
         {
             //gets all requests
@@ -23,6 +24,7 @@ namespace HotelGuestSystem.Controllers
             var view = ListStaffRequests.CreateView(requests, _db);
             return View(view);
         }
+        [Authorize("Staff")]
         public async Task<IActionResult> Complete(int id)
         {
             //complete the request
