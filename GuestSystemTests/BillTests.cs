@@ -50,6 +50,7 @@ namespace GuestSystemTests
             billingitem.Price = 1;
             billingitem.Quantity = 1;
             billingitem.CustomerId = "27b9df34-a133-43e2-8dd2-aef04ddb2b8c";
+            billingitem.Type = "Food";
             _db.BillItems.Add(billingitem);
 
             var billingitem2 = new BillItem();
@@ -58,14 +59,25 @@ namespace GuestSystemTests
             billingitem2.Price = 2;
             billingitem2.Quantity = 2;
             billingitem2.CustomerId = "27b9df34-a133-43e2-8dd2-aef04ddb2b8c";
+            billingitem2.Type = "Drink";
             _db.BillItems.Add(billingitem2);
 
             var billingitem3 = new BillItem();
             billingitem3.Id = 3;
-            billingitem3.ItemName = "Change Sheets";
-            billingitem3.Price = 3;
-            billingitem3.Quantity = 1;
-            billingitem3.CustomerId = "27b9df24-a133-43e2-8dd2-aef04ddb2b8c";
+            billingitem3.ItemName = "Toilet Roll";
+            billingitem3.Price = 2;
+            billingitem3.Quantity = 2;
+            billingitem3.CustomerId = "27b9df34-a133-43e2-8dd2-aef04ddb2b8c";
+            billingitem3.Type = "RoomService";
+            _db.BillItems.Add(billingitem3);
+
+            var billingitem4 = new BillItem();
+            billingitem4.Id = 4;
+            billingitem4.ItemName = "Change Sheets";
+            billingitem4.Price = 3;
+            billingitem4.Quantity = 1;
+            billingitem4.CustomerId = "27b9df24-a133-43e2-8dd2-aef04ddb2b8c";
+            billingitem4.Type = "RoomService";
             _db.BillItems.Add(billingitem);
 
             var newrates = new CurrentRatesModel();
@@ -105,7 +117,7 @@ namespace GuestSystemTests
             //Arrange
             await CreateMocDB();
             var billitems = await _db.BillItems.ToListAsync();
-            var Expected = "Total: £3";
+            var Expected = "Total: £5";
             //Act
             var CustomerBillTotal = Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db,"GBP").Result;
             //Assert
@@ -118,7 +130,7 @@ namespace GuestSystemTests
             //Arrange
             await CreateMocDB();
             var billitems = await _db.BillItems.ToListAsync();
-            var Expected = "Total: $3.3";
+            var Expected = "Total: $5.5";
             //Act
             var CustomerBillTotal = Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
             //Assert
@@ -131,7 +143,7 @@ namespace GuestSystemTests
             //Arrange
             await CreateMocDB();
             var billitems = await _db.BillItems.ToListAsync();
-            var Expected = "Total: €3.6";
+            var Expected = "Total: €6";
             //Act
             var CustomerBillTotal = Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
             //Assert
@@ -144,11 +156,219 @@ namespace GuestSystemTests
             //Arrange
             await CreateMocDB();
             var billitems = await _db.BillItems.ToListAsync();
-            var Expected = "Total: ¥4";
+            var Expected = "Total: ¥6";
             //Act
             var CustomerBillTotal = Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
             //Assert
             Assert.AreEqual(Expected, CustomerBillTotal);
         }
+        [Test]
+        public async Task FoodTotalCorrectGBP()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Food Total: £1";
+            //Act
+            var CustomerBillTotal = Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "GBP").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+        [Test]
+        public async Task FoodTotalCorrectUSD()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Food Total: $1.1";
+            //Act
+            var CustomerBillTotal = Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+        [Test]
+        public async Task FoodTotalCorrectEuro()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Food Total: €1.2";
+            //Act
+            var CustomerBillTotal = Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+        [Test]
+        public async Task FoodTotalCorrectYen()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Food Total: ¥1";
+            //Act
+            var CustomerBillTotal = Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
+            //Assert
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+        [Test]
+        public async Task DrinkTotalCorrectGBP()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Drink Total: £2";
+            //Act
+            var CustomerBillTotal = Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "GBP").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+        [Test]
+        public async Task DrinkTotalCorrectUSD()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Drink Total: $2.2";
+            //Act
+            var CustomerBillTotal = Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+        [Test]
+        public async Task DrinkTotalCorrectEuro()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Drink Total: €2.4";
+            //Act
+            var CustomerBillTotal = Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+        [Test]
+        public async Task DrinkTotalCorrectYen()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Drink Total: ¥3";
+            //Act
+            var CustomerBillTotal = Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
+            //Assert
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+
+        [Test]
+        public async Task RoomServiceTotalCorrectGBP()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Room Service Total: £2";
+            //Act
+            var CustomerBillTotal = Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "GBP").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+        [Test]
+        public async Task RoomServiceTotalCorrectUSD()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Room Service Total: $2.2";
+            //Act
+            var CustomerBillTotal = Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+        [Test]
+        public async Task RoomServiceTotalCorrectEuro()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Room Service Total: €2.4";
+            //Act
+            var CustomerBillTotal = Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+        [Test]
+        public async Task RoomServiceTotalCorrectYen()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "Room Service Total: ¥3";
+            //Act
+            var CustomerBillTotal = Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
+            //Assert
+            Assert.AreEqual(Expected, CustomerBillTotal);
+        }
+
+
+        [Test]
+        public async Task RoomServiceListItemsConvertCorrectlyGBP()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "£1";
+            //Act
+            var CustomerBill = Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, billitems, "GBP").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBill[0].Price);
+        }
+        [Test]
+        public async Task RoomServiceListItemsConvertCorrectlyUSD()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "$1.1";
+            //Act
+            var CustomerBill = Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db,billitems,"USD").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBill[0].Price);
+        }
+        [Test]
+        public async Task RoomServiceListItemsConvertCorrectlyEuro()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "€1.2";
+            //Act
+            var CustomerBill = Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, billitems, "EURO").Result;
+            //Assert
+
+            Assert.AreEqual(Expected, CustomerBill[0].Price);
+        }
+        [Test]
+        public async Task RoomServiceListItemsConvertCorrectlyYen()
+        {
+            //Arrange
+            await CreateMocDB();
+            var billitems = await _db.BillItems.ToListAsync();
+            var Expected = "¥1";
+            //Act
+            var CustomerBill = Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, billitems, "Yen").Result;
+            //Assert
+            Assert.AreEqual(Expected, CustomerBill[0].Price);
+        }
+
     }
 }

@@ -16,6 +16,42 @@ namespace HotelGuestSystem.Models
             var CustomerBillItems = await db.BillItems.Where(s => s.CustomerId == CustomerID).ToListAsync();
             return CustomerBillItems;
         }
+        //converts the bill items to a format that can be displayed as well as in the customers prefered currency
+        public static async Task<List<BillItemViewModel>> ConvertBill(string CustomerID, ApplicationDbContext db,List<BillItem> billist, string PreferedCurrency)
+        {
+            List<BillItemViewModel> Converted = new List<BillItemViewModel>();
+
+            foreach(var billItem in billist)
+            {
+                BillItemViewModel ConvertedItem = new BillItemViewModel();
+
+                ConvertedItem.Type = billItem.Type;
+                ConvertedItem.ItemName = billItem.ItemName;
+                ConvertedItem.Quantity = billItem.Quantity;
+
+                //depending on the users prefered currency a string will be made with there currency
+                if (PreferedCurrency == "GBP")
+                {
+                    ConvertedItem.Price = $"£{billItem.Price}";
+                }
+                if (PreferedCurrency == "USD")
+                {
+                    ConvertedItem.Price = $"${Math.Round(GetRates.ToUSD(db, billItem.Price), 2)}";
+                }
+                if (PreferedCurrency == "EURO")
+                {
+                    ConvertedItem.Price = $"€{Math.Round(GetRates.ToEuro(db, billItem.Price), 2)}";
+                }
+                if (PreferedCurrency == "Yen")
+                {
+                    ConvertedItem.Price = $"¥{Convert.ToInt32(GetRates.ToYen(db, billItem.Price))}";
+                }
+                Converted.Add(ConvertedItem);
+            }
+
+            return Converted;
+        }
+        //gets the total
         public static async Task<string> Total(string CustomerID, ApplicationDbContext db, string PreferedCurrency)
         {
             double total = 0;
@@ -50,10 +86,11 @@ namespace HotelGuestSystem.Models
             return "Not Available";
 
         }
+        //gets the food total
         public static async Task<string> FoodTotal(string CustomerID, ApplicationDbContext db, string PreferedCurrency)
         {
             double total = 0;
-            var items = await GetBill(CustomerID, db);
+            var items = GetBill(CustomerID, db).Result.Where(s => s.Type == "Food").ToList();
             string TotalConverted;
             foreach (var item in items)
             {
@@ -63,31 +100,32 @@ namespace HotelGuestSystem.Models
             //depending on the users prefered currency a string will be made with there currency
             if (PreferedCurrency == "GBP")
             {
-                TotalConverted = $"Total: £{total}";
+                TotalConverted = $"Food Total: £{total}";
                 return TotalConverted;
             }
             if (PreferedCurrency == "USD")
             {
-                TotalConverted = $"Total: ${Math.Round(GetRates.ToUSD(db, total), 2)}";
+                TotalConverted = $"Food Total: ${Math.Round(GetRates.ToUSD(db, total), 2)}";
                 return TotalConverted;
             }
             if (PreferedCurrency == "EURO")
             {
-                TotalConverted = $"Total: €{Math.Round(GetRates.ToEuro(db, total), 2)}";
+                TotalConverted = $"Food Total: €{Math.Round(GetRates.ToEuro(db, total), 2)}";
                 return TotalConverted;
             }
             if (PreferedCurrency == "Yen")
             {
-                TotalConverted = $"Total: ¥{Convert.ToInt32(GetRates.ToYen(db, total))}";
+                TotalConverted = $"Food Total: ¥{Convert.ToInt32(GetRates.ToYen(db, total))}";
                 return TotalConverted;
             }
             return "Not Available";
 
         }
+        //gets the drink total
         public static async Task<string> DrinkTotal(string CustomerID, ApplicationDbContext db, string PreferedCurrency)
         {
             double total = 0;
-            var items = await GetBill(CustomerID, db);
+            var items = GetBill(CustomerID, db).Result.Where(s => s.Type == "Drink").ToList();
             string TotalConverted;
             foreach (var item in items)
             {
@@ -97,27 +135,28 @@ namespace HotelGuestSystem.Models
             //depending on the users prefered currency a string will be made with there currency
             if (PreferedCurrency == "GBP")
             {
-                TotalConverted = $"Total: £{total}";
+                TotalConverted = $"Drink Total: £{total}";
                 return TotalConverted;
             }
             if (PreferedCurrency == "USD")
             {
-                TotalConverted = $"Total: ${Math.Round(GetRates.ToUSD(db, total), 2)}";
+                TotalConverted = $"Drink Total: ${Math.Round(GetRates.ToUSD(db, total), 2)}";
                 return TotalConverted;
             }
             if (PreferedCurrency == "EURO")
             {
-                TotalConverted = $"Total: €{Math.Round(GetRates.ToEuro(db, total), 2)}";
+                TotalConverted = $"Drink Total: €{Math.Round(GetRates.ToEuro(db, total), 2)}";
                 return TotalConverted;
             }
             if (PreferedCurrency == "Yen")
             {
-                TotalConverted = $"Total: ¥{Convert.ToInt32(GetRates.ToYen(db, total))}";
+                TotalConverted = $"Drink Total: ¥{Convert.ToInt32(GetRates.ToYen(db, total))}";
                 return TotalConverted;
             }
             return "Not Available";
 
         }
+        //gets the room service total
         public static async Task<string> RoomServiceTotal(string CustomerID, ApplicationDbContext db, string PreferedCurrency)
         {
             double total = 0;
