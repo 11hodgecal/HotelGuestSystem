@@ -1,0 +1,108 @@
+﻿@using HotelGuestSystem.Models
+@model List<BillItemViewModel>
+
+<h4>Room Service</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Item/Service</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            @if(item.Type == "RoomService")
+            {
+                <tr>
+                    <th scope="row">@item.Quantity X @item.ItemName</th>
+                    <td></td>
+                    <td></td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+            
+        }
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td>@ViewBag.RoomServiceTotal</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Food</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Item/Service</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            @if(item.Type == "Food")
+            {
+                <tr>
+                    <th scope="row">@item.Quantity X @item.ItemName</th>
+                    <td></td>
+                    <td></td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+            
+        }
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td>@ViewBag.FoodTotal</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Drink</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Item/Service</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            @if(item.Type == "Drink")
+            {
+                <tr>
+                    <th scope="row">@item.Quantity X @item.ItemName</th>
+                    <td></td>
+                    <td></td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+            
+        }
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td>@ViewBag.DrinkTotal</td>
+        </tr>
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td>Grand @ViewBag.Total</td>
+        </tr>
+    </tbody>
+</table>
+
