@@ -164,7 +164,7 @@ namespace HotelGuestSystem.Data
             user3.LockoutEnabled = false;
             user3.ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29";
             user3.PasswordHash = hasher.HashPassword(user, "Admin123!");
-            user3.PreferedCurrency = "USD";
+            user3.PreferedCurrency = "GBP";
 
             builder.Entity<UserModel>().HasData(user3);
 
