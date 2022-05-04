@@ -259,27 +259,27 @@ namespace HotelGuestSystem.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Bookingid", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PreferedCurrency", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "27b9af34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "admin@admin.com", false, "Bob", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEHF7KrdlSVSBv1E5LaMq3cmKIqUbhHWFLYWqNJf8Qm6K2rpL9gLmVQQVgtHhWyx3Fg==", null, false, null, "daa23926-d2fd-46c1-b729-476dbd2dc5cf", "Nobody", false, "admin@admin.com" });
+                values: new object[] { "27b9af34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "admin@admin.com", false, "Bob", false, null, "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEBJ3frR5K24/+MyT0wF75PT0+bYn5pn2GdZFcfItqKq5Yt0WAPTaRijPleQe9jBrWg==", null, false, null, "b203e000-e6e4-4a59-b759-861d13c6f17b", "Nobody", false, "admin@admin.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Bookingid", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PreferedCurrency", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "27b9df34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test@Test.com", false, "Bob", false, null, "TEST@TEST.COM", "TEST@TEST.COM", "AQAAAAEAACcQAAAAEI66R07bC4J9Y3QLxUIUu3dZ8+lY2V5y1g5zN11BVPQCNgoxt5rDHRplEnI14CzwMA==", null, false, "Yen", "a6bf05e5-144e-41fa-b52d-ccf2952ab893", "Nobody", false, "Test@Test.com" });
+                values: new object[] { "27b9df34-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test@Test.com", false, "Yen", false, null, "TEST@TEST.COM", "TEST@TEST.COM", "AQAAAAEAACcQAAAAEG3UvDgwXhzd3EX5zFQE08ERNTyOW77XWFxG2SvZSN5ilRVJvbSO5miU/j0NrSz6Nw==", null, false, "Yen", "449dacf2-47af-421e-9be9-6c0c0899bce0", "2", false, "Test@Test.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Bookingid", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PreferedCurrency", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "27b9df32-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test2@Test.com", false, "Bob", false, null, "TEST2@TEST.COM", "TEST2@TEST.COM", "AQAAAAEAACcQAAAAEN6R4hFxVndlT+xUIvpyw2ZWnJL2ln2Wb+0pSG1JbW+q4HNduRI+4+f6FSh3dZCr2g==", null, false, "EURO", "307f0d55-2c92-40af-9c98-54c3daf6166e", "Nobody", false, "Test2@Test.com" });
+                values: new object[] { "27b9df32-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test2@Test.com", false, "Euro", false, null, "TEST2@TEST.COM", "TEST2@TEST.COM", "AQAAAAEAACcQAAAAELVllTr4FLgSL5BcbrGsSXNMr4c9mZ5B5Yk8+Ws4w6nGUdwf5Rb6rPxGEPiaNyGl2g==", null, false, "EURO", "50d9ccd0-b7ae-4bad-bb5b-2a50bc3849eb", "2", false, "Test2@Test.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Bookingid", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PreferedCurrency", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "27b9df37-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test3@Test.com", false, "Bob", false, null, "TEST3@TEST.COM", "TEST3@TEST.COM", "AQAAAAEAACcQAAAAED/gwoCFkYf0tvEVs5lDMbPH1ZzIaOgfvUvWsVAD7Ts1hg5WWQM6x68pMqAMRh/THQ==", null, false, "GBP", "d0821df9-e221-49ce-8f07-154c23105701", "Nobody", false, "Test3@Test.com" });
+                values: new object[] { "27b9df37-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test3@Test.com", false, "British", false, null, "TEST3@TEST.COM", "TEST3@TEST.COM", "AQAAAAEAACcQAAAAEPcuhvgGX0VnGEZgciggFxHmjC42x6a3Xr3/AK3oca56oFUUyUAEET33xqqBgmzcCA==", null, false, "GBP", "3db85f44-5f2c-46c5-904e-a7dbd2a681cb", "2", false, "Test3@Test.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "Bookingid", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "Fname", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PreferedCurrency", "SecurityStamp", "Sname", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "27b9df47-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test4@Test.com", false, "British", false, null, "TEST4@TEST.COM", "TEST4@TEST.COM", "AQAAAAEAACcQAAAAEPWGFPoFvdA0pG9wX0hyaVeR9SP0dZOKvuvKa8cj1pfAxFV3BPRaYClRnXt1Rbr3Cg==", null, false, "USD", "5f82bb2b-7346-4c30-ad18-a794d0fa403d", "MadLad", false, "Test4@Test.com" });
+                values: new object[] { "27b9df47-a133-43e2-8dd2-aef04ddb2b8c", 0, 0, "7b483dfe-e56c-4d5b-97cd-b32652794d29", "UserModel", "Test4@Test.com", false, "USD", false, null, "TEST4@TEST.COM", "TEST4@TEST.COM", "AQAAAAEAACcQAAAAENTO/FNBPMnvg3iJTdPzaasRhvdiJjLogmmrcdqN4QeHSOqRyubmAJ1Y3iCyZ40DNQ==", null, false, "USD", "f25d31ef-7cd7-4b5d-a040-23bb377e79f1", "2", false, "Test4@Test.com" });
 
             migrationBuilder.InsertData(
                 table: "RoomServiceItems",

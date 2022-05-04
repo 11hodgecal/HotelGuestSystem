@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelGuestSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220504101855_datainit8")]
+    [Migration("20220504103007_datainit8")]
     partial class datainit8
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -451,9 +451,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHF7KrdlSVSBv1E5LaMq3cmKIqUbhHWFLYWqNJf8Qm6K2rpL9gLmVQQVgtHhWyx3Fg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBJ3frR5K24/+MyT0wF75PT0+bYn5pn2GdZFcfItqKq5Yt0WAPTaRijPleQe9jBrWg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "daa23926-d2fd-46c1-b729-476dbd2dc5cf",
+                            SecurityStamp = "b203e000-e6e4-4a59-b759-861d13c6f17b",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com",
                             Bookingid = 0,
@@ -470,15 +470,15 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.COM",
                             NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEI66R07bC4J9Y3QLxUIUu3dZ8+lY2V5y1g5zN11BVPQCNgoxt5rDHRplEnI14CzwMA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG3UvDgwXhzd3EX5zFQE08ERNTyOW77XWFxG2SvZSN5ilRVJvbSO5miU/j0NrSz6Nw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a6bf05e5-144e-41fa-b52d-ccf2952ab893",
+                            SecurityStamp = "449dacf2-47af-421e-9be9-6c0c0899bce0",
                             TwoFactorEnabled = false,
                             UserName = "Test@Test.com",
                             Bookingid = 0,
-                            Fname = "Bob",
+                            Fname = "Yen",
                             PreferedCurrency = "Yen",
-                            Sname = "Nobody"
+                            Sname = "2"
                         },
                         new
                         {
@@ -490,15 +490,15 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST2@TEST.COM",
                             NormalizedUserName = "TEST2@TEST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEN6R4hFxVndlT+xUIvpyw2ZWnJL2ln2Wb+0pSG1JbW+q4HNduRI+4+f6FSh3dZCr2g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELVllTr4FLgSL5BcbrGsSXNMr4c9mZ5B5Yk8+Ws4w6nGUdwf5Rb6rPxGEPiaNyGl2g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "307f0d55-2c92-40af-9c98-54c3daf6166e",
+                            SecurityStamp = "50d9ccd0-b7ae-4bad-bb5b-2a50bc3849eb",
                             TwoFactorEnabled = false,
                             UserName = "Test2@Test.com",
                             Bookingid = 0,
-                            Fname = "Bob",
+                            Fname = "Euro",
                             PreferedCurrency = "EURO",
-                            Sname = "Nobody"
+                            Sname = "2"
                         },
                         new
                         {
@@ -510,15 +510,15 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST3@TEST.COM",
                             NormalizedUserName = "TEST3@TEST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAED/gwoCFkYf0tvEVs5lDMbPH1ZzIaOgfvUvWsVAD7Ts1hg5WWQM6x68pMqAMRh/THQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPcuhvgGX0VnGEZgciggFxHmjC42x6a3Xr3/AK3oca56oFUUyUAEET33xqqBgmzcCA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d0821df9-e221-49ce-8f07-154c23105701",
+                            SecurityStamp = "3db85f44-5f2c-46c5-904e-a7dbd2a681cb",
                             TwoFactorEnabled = false,
                             UserName = "Test3@Test.com",
                             Bookingid = 0,
-                            Fname = "Bob",
+                            Fname = "British",
                             PreferedCurrency = "GBP",
-                            Sname = "Nobody"
+                            Sname = "2"
                         },
                         new
                         {
@@ -530,15 +530,15 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST4@TEST.COM",
                             NormalizedUserName = "TEST4@TEST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPWGFPoFvdA0pG9wX0hyaVeR9SP0dZOKvuvKa8cj1pfAxFV3BPRaYClRnXt1Rbr3Cg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENTO/FNBPMnvg3iJTdPzaasRhvdiJjLogmmrcdqN4QeHSOqRyubmAJ1Y3iCyZ40DNQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5f82bb2b-7346-4c30-ad18-a794d0fa403d",
+                            SecurityStamp = "f25d31ef-7cd7-4b5d-a040-23bb377e79f1",
                             TwoFactorEnabled = false,
                             UserName = "Test4@Test.com",
                             Bookingid = 0,
-                            Fname = "British",
+                            Fname = "USD",
                             PreferedCurrency = "USD",
-                            Sname = "MadLad"
+                            Sname = "2"
                         });
                 });
 
