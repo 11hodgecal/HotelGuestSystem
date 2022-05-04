@@ -97,11 +97,13 @@ namespace GuestSystemTests
             await UpdateCurRates.Update(_db);
             var rates = _db.GBPConversionRates.FirstOrDefaultAsync().Result;
             //Assert
-            if(rates.GDPToEuroRate == 1.2 && rates.GDPToYenRate == 1.3 && rates.GDPToUSDRate == 1.1)
+            if(rates.GDPToEuroRate == 1.2 && rates.GDPToYenRate == 1.3 
+                && rates.GDPToUSDRate == 1.1)
             {
                 Assert.Fail("The Currency Exchange rates did not update");
             }
-            if (rates.GDPToEuroRate != 1.2 && rates.GDPToYenRate != 1.3 && rates.GDPToUSDRate != 1.1)
+            if (rates.GDPToEuroRate != 1.2 && rates.GDPToYenRate != 1.3 
+                && rates.GDPToUSDRate != 1.1)
             {
                 Assert.Pass();
             }

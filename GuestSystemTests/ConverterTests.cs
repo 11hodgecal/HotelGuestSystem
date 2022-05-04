@@ -47,7 +47,7 @@ namespace GuestSystemTests
             var actual = GetRates.ToUSD(_db, 40);
 
             //assert
-            Assert.AreEqual(expected, actual, "The USD Converstion does not work");
+            Assert.AreEqual(expected, actual);
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace GuestSystemTests
             var actual = GetRates.ToYen(_db, 40);
 
             //assert
-            Assert.AreEqual(expected, actual, "The Yen Converstion does not work");
+            Assert.AreEqual(expected, actual);
         }
         [Test]
         public async Task ToEuroWorksCorrectly()
@@ -76,7 +76,7 @@ namespace GuestSystemTests
             var actual = GetRates.ToEuro(_db, 40);
 
             //assert
-            Assert.AreEqual(expected, actual, "The Euro Converstion does not work");
+            Assert.AreEqual(expected, actual);
         }
         [Test]
         public async Task ToPoundServiceViewWorks()
@@ -87,7 +87,9 @@ namespace GuestSystemTests
             string Currency = "GBP";
             string expected = "£1";
             //Act
-            var Actual = GetRates.ServiceRequestViewModelConvert(_db, RoomServiceItems, Currency)[0].PreferedCurPrice;
+            var Actual = GetRates
+                .ServiceRequestViewModelConvert(_db, RoomServiceItems, Currency)[0]
+                .PreferedCurPrice;
 
             //Assert
             Assert.AreEqual(expected, Actual);
@@ -102,7 +104,8 @@ namespace GuestSystemTests
             string Currency = "USD";
             string expected = "$1.1";
             //Act
-            var Actual = GetRates.ServiceRequestViewModelConvert(_db, RoomServiceItems, Currency)[0].PreferedCurPrice;
+            var Actual = GetRates.ServiceRequestViewModelConvert
+                (_db, RoomServiceItems, Currency)[0].PreferedCurPrice;
 
             //Assert
             Assert.AreEqual(expected, Actual);
@@ -117,7 +120,8 @@ namespace GuestSystemTests
             string Currency = "EURO";
             string expected = "€1.2";
             //Act
-            var Actual = GetRates.ServiceRequestViewModelConvert(_db, RoomServiceItems, Currency)[0].PreferedCurPrice;
+            var Actual = GetRates.ServiceRequestViewModelConvert
+                (_db, RoomServiceItems, Currency)[0].PreferedCurPrice;
 
             //Assert
             Assert.AreEqual(expected, Actual);
@@ -132,7 +136,8 @@ namespace GuestSystemTests
             string Currency = "Yen";
             string expected = "¥1";
             //Act
-            var Actual = GetRates.ServiceRequestViewModelConvert(_db, RoomServiceItems, Currency)[0].PreferedCurPrice;
+            var Actual = GetRates.ServiceRequestViewModelConvert
+                (_db, RoomServiceItems, Currency)[0].PreferedCurPrice;
 
             //Assert
             Assert.AreEqual(expected, Actual);

@@ -119,7 +119,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Total: £5";
             //Act
-            var CustomerBillTotal = Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db,"GBP").Result;
+            var CustomerBillTotal = 
+               Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db,"GBP").Result;
             //Assert
             
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -132,7 +133,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Total: $5.5";
             //Act
-            var CustomerBillTotal = Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
+            var CustomerBillTotal = 
+                Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -145,7 +147,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Total: €6";
             //Act
-            var CustomerBillTotal = Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
+            var CustomerBillTotal = 
+                Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -158,7 +161,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Total: ¥6";
             //Act
-            var CustomerBillTotal = Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
+            var CustomerBillTotal = 
+                Bill.Total("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
             //Assert
             Assert.AreEqual(Expected, CustomerBillTotal);
         }
@@ -170,7 +174,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Food Total: £1";
             //Act
-            var CustomerBillTotal = Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "GBP").Result;
+            var CustomerBillTotal = 
+                Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "GBP").Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -183,7 +188,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Food Total: $1.1";
             //Act
-            var CustomerBillTotal = Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
+            var CustomerBillTotal = 
+                Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -196,7 +202,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Food Total: €1.2";
             //Act
-            var CustomerBillTotal = Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
+            var CustomerBillTotal = 
+                Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -209,7 +216,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Food Total: ¥1";
             //Act
-            var CustomerBillTotal = Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
+            var CustomerBillTotal = 
+                Bill.FoodTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
             //Assert
             Assert.AreEqual(Expected, CustomerBillTotal);
         }
@@ -221,7 +229,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Drink Total: £2";
             //Act
-            var CustomerBillTotal = Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "GBP").Result;
+            var CustomerBillTotal = 
+                Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "GBP").Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -234,7 +243,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Drink Total: $2.2";
             //Act
-            var CustomerBillTotal = Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
+            var CustomerBillTotal = 
+                Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -247,7 +257,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Drink Total: €2.4";
             //Act
-            var CustomerBillTotal = Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
+            var CustomerBillTotal = 
+                Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -260,7 +271,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Drink Total: ¥3";
             //Act
-            var CustomerBillTotal = Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
+            var CustomerBillTotal = 
+                Bill.DrinkTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
             //Assert
             Assert.AreEqual(Expected, CustomerBillTotal);
         }
@@ -273,7 +285,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Room Service Total: £2";
             //Act
-            var CustomerBillTotal = Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "GBP").Result;
+            var CustomerBillTotal = 
+                Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "GBP").Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -286,7 +299,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Room Service Total: $2.2";
             //Act
-            var CustomerBillTotal = Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
+            var CustomerBillTotal = 
+                Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "USD").Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -299,7 +313,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Room Service Total: €2.4";
             //Act
-            var CustomerBillTotal = Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
+            var CustomerBillTotal = 
+                Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "EURO").Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBillTotal);
@@ -312,7 +327,8 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "Room Service Total: ¥3";
             //Act
-            var CustomerBillTotal = Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
+            var CustomerBillTotal = 
+                Bill.RoomServiceTotal("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, "Yen").Result;
             //Assert
             Assert.AreEqual(Expected, CustomerBillTotal);
         }
@@ -326,7 +342,9 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "£1";
             //Act
-            var CustomerBill = Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, billitems, "GBP").Result;
+            var CustomerBill = 
+                Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, billitems, "GBP")
+                .Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBill[0].Price);
@@ -339,7 +357,9 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "$1.1";
             //Act
-            var CustomerBill = Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db,billitems,"USD").Result;
+            var CustomerBill = 
+                Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db,billitems,"USD")
+                .Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBill[0].Price);
@@ -352,7 +372,9 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "€1.2";
             //Act
-            var CustomerBill = Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, billitems, "EURO").Result;
+            var CustomerBill = 
+                Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, billitems, "EURO")
+                .Result;
             //Assert
 
             Assert.AreEqual(Expected, CustomerBill[0].Price);
@@ -365,7 +387,9 @@ namespace GuestSystemTests
             var billitems = await _db.BillItems.ToListAsync();
             var Expected = "¥1";
             //Act
-            var CustomerBill = Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, billitems, "Yen").Result;
+            var CustomerBill = 
+                Bill.ConvertBill("27b9df34-a133-43e2-8dd2-aef04ddb2b8c", _db, billitems, "Yen")
+                .Result;
             //Assert
             Assert.AreEqual(Expected, CustomerBill[0].Price);
         }
