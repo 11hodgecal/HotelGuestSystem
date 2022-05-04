@@ -129,8 +129,8 @@ namespace HotelGuestSystem.Data
             user.NormalizedUserName = "Test@Test.com".ToUpper();
             user.NormalizedEmail = "Test@Test.com".ToUpper();
             user.Email = "Test@Test.com";
-            user.Fname = "Bob";
-            user.Sname = "Nobody";
+            user.Fname = "Yen";
+            user.Sname = "2";
             user.LockoutEnabled = false;
             user.ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29";
             user.PasswordHash = hasher.HashPassword(user, "Admin123!");
@@ -144,8 +144,8 @@ namespace HotelGuestSystem.Data
             user2.NormalizedUserName = "Test2@Test.com".ToUpper();
             user2.NormalizedEmail = "Test2@Test.com".ToUpper();
             user2.Email = "Test2@Test.com";
-            user2.Fname = "Bob";
-            user2.Sname = "Nobody";
+            user2.Fname = "Euro";
+            user2.Sname = "2";
             user2.LockoutEnabled = false;
             user2.ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29";
             user2.PasswordHash = hasher.HashPassword(user, "Admin123!");
@@ -159,8 +159,8 @@ namespace HotelGuestSystem.Data
             user3.NormalizedUserName = "Test3@Test.com".ToUpper();
             user3.NormalizedEmail = "Test3@Test.com".ToUpper();
             user3.Email = "Test3@Test.com";
-            user3.Fname = "Bob";
-            user3.Sname = "Nobody";
+            user3.Fname = "British";
+            user3.Sname = "2";
             user3.LockoutEnabled = false;
             user3.ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29";
             user3.PasswordHash = hasher.HashPassword(user, "Admin123!");
@@ -174,8 +174,8 @@ namespace HotelGuestSystem.Data
             user4.NormalizedUserName = "Test4@Test.com".ToUpper();
             user4.NormalizedEmail = "Test4@Test.com".ToUpper();
             user4.Email = "Test4@Test.com";
-            user4.Fname = "British";
-            user4.Sname = "MadLad";
+            user4.Fname = "USD";
+            user4.Sname = "2";
             user4.LockoutEnabled = false;
             user4.ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29";
             user4.PasswordHash = hasher.HashPassword(user, "Admin123!");
