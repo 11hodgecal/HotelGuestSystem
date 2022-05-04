@@ -17,7 +17,8 @@ namespace HotelGuestSystem.Models
             return CustomerBillItems;
         }
         //converts the bill items to a format that can be displayed as well as in the customers prefered currency
-        public static async Task<List<BillItemViewModel>> ConvertBill(string CustomerID, ApplicationDbContext db,List<BillItem> billist, string PreferedCurrency)
+        public static async Task<List<BillItemViewModel>> ConvertBill
+            (string CustomerID, ApplicationDbContext db,List<BillItem> billist, string PreferedCurrency)
         {
             List<BillItemViewModel> Converted = new List<BillItemViewModel>();
 

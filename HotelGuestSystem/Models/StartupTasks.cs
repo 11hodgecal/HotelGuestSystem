@@ -11,7 +11,7 @@ namespace HotelGuestSystem.Models
             //initalizes the database
             ApplicationDbContext _db;
             var options = new DbContextOptionsBuilder<ApplicationDbContext>().
-                UseSqlite("DataSource=C:\\Users\\callu\\Desktop\\HotelGuestSystem\\app.db").Options;
+                UseSqlite("DataSource=app.db").Options;
             _db = new ApplicationDbContext(options);
             _db.Database.EnsureCreated();
             await _db.SaveChangesAsync();

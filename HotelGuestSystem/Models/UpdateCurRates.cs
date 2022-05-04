@@ -13,12 +13,15 @@
         public static async Task Update(ApplicationDbContext Context)
         {
             //scrapes the currency converstion rates of a website
-            var driver = new ChromeDriver("C:\\Program Files\\Google\\Chrome\\Application");
+            var driver = new ChromeDriver("H:\\");
             driver.Navigate().GoToUrl("https://www.exchangerates.org.uk/");
 
-            string GDPToUsd = driver.FindElement(By.XPath("/html/body/div[2]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div/div[1]/table/tbody/tr[2]/td[4]/strong")).Text;
-            string GBPToEUR = driver.FindElement(By.XPath("/html/body/div[2]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div/div[1]/table/tbody/tr[1]/td[4]/strong")).Text;
-            string GBPToYen = driver.FindElement(By.XPath("/html/body/div[2]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div/div[1]/table/tbody/tr[6]/td[4]/strong")).Text;
+            string GDPToUsd = driver.FindElement(By.XPath("/html/body/div[2]/div[7]/div[1]/" +
+                "div[1]/div[1]/div[1]/div[2]/div/div[1]/table/tbody/tr[2]/td[4]/strong")).Text;
+            string GBPToEUR = driver.FindElement(By.XPath("/html/body/div[2]/div[7]/div[1]/" +
+                "div[1]/div[1]/div[1]/div[2]/div/div[1]/table/tbody/tr[1]/td[4]/strong")).Text;
+            string GBPToYen = driver.FindElement(By.XPath("/html/body/div[2]/div[7]/div[1]/" +
+                "div[1]/div[1]/div[1]/div[2]/div/div[1]/table/tbody/tr[6]/td[4]/strong")).Text;
             double GDPToUsdRate = Convert.ToDouble(GDPToUsd);
             double GBPToEURRate = Convert.ToDouble(GBPToEUR);
             double GBPToYenRate = Convert.ToDouble(GBPToYen);

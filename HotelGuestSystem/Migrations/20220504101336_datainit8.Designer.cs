@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelGuestSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220425215937_datainit1")]
-    partial class datainit1
+    [Migration("20220504101336_datainit8")]
+    partial class datainit8
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -383,6 +383,21 @@ namespace HotelGuestSystem.Migrations
                         {
                             UserId = "27b9df34-a133-43e2-8dd2-aef04ddb2b8c",
                             RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02"
+                        },
+                        new
+                        {
+                            UserId = "27b9df37-a133-43e2-8dd2-aef04ddb2b8c",
+                            RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02"
+                        },
+                        new
+                        {
+                            UserId = "27b9df47-a133-43e2-8dd2-aef04ddb2b8c",
+                            RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02"
+                        },
+                        new
+                        {
+                            UserId = "27b9df32-a133-43e2-8dd2-aef04ddb2b8c",
+                            RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02"
                         });
                 });
 
@@ -436,9 +451,9 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDb1NTsmn7seQAuWREN09fQXD5JiKRBnWIAqBB9sugXuL1FYBPEKRN+s/vU63M53ug==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMrukiNgbKFSZj2lDmTp7XMrSQX1sNv6KGHbEGZvqdP//Qy0lFu5KZ49Pg9vcmP/tg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1b0b8d7b-471c-4aab-93f5-c2aace30bd6f",
+                            SecurityStamp = "bfb2541f-90de-4b68-a39c-e371723e73e9",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com",
                             Bookingid = 0,
@@ -455,15 +470,75 @@ namespace HotelGuestSystem.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.COM",
                             NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOpbcJaZ1PKoOmlQA3j0xtToXGqpQS7TRQchX96hREZ9Xildmiv3CBiqiuSfRVMduw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJPTKb225d8igC/AWavwE9xRbIIVBwrXLvA97hrhq8CJxXoTszoyZe7zfpxTgUTgoQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "96f04254-6ceb-4e29-bec2-07cb4ec34ded",
+                            SecurityStamp = "5691a299-ec3b-4dd5-bdcc-4a0cb705ecc6",
                             TwoFactorEnabled = false,
                             UserName = "Test@Test.com",
                             Bookingid = 0,
                             Fname = "Bob",
                             PreferedCurrency = "Yen",
                             Sname = "Nobody"
+                        },
+                        new
+                        {
+                            Id = "27b9df32-a133-43e2-8dd2-aef04ddb2b8c",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29",
+                            Email = "Test2@Test.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TEST2@TEST.COM",
+                            NormalizedUserName = "TEST2@TEST.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAECq8BXRE5IoUpU+qoX8e5y0E9Qs7WWx5+j3A3wQ7r8VprfRAOxT6F0RIy3MKV7QOnw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "9d2cc8e3-afce-478d-b763-55a5d50abfae",
+                            TwoFactorEnabled = false,
+                            UserName = "Test2@Test.com",
+                            Bookingid = 0,
+                            Fname = "Bob",
+                            PreferedCurrency = "EURO",
+                            Sname = "Nobody"
+                        },
+                        new
+                        {
+                            Id = "27b9df37-a133-43e2-8dd2-aef04ddb2b8c",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29",
+                            Email = "Test3@Test.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TEST3@TEST.COM",
+                            NormalizedUserName = "TEST3@TEST.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAED4bUzGeS0HnFsoaq8xWCl40VxpjkW6zPUJbjq4GY3UsMz+R9E+DThHUxfY2rwjhLw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "a141f498-2af0-4b7f-9fbd-74f2828d6dcd",
+                            TwoFactorEnabled = false,
+                            UserName = "Test3@Test.com",
+                            Bookingid = 0,
+                            Fname = "Bob",
+                            PreferedCurrency = "USD",
+                            Sname = "Nobody"
+                        },
+                        new
+                        {
+                            Id = "27b9df47-a133-43e2-8dd2-aef04ddb2b8c",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29",
+                            Email = "Test4@Test.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "TEST4@TEST.COM",
+                            NormalizedUserName = "TEST4@TEST.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOD9KrCqUVhO3b6rXsMC1B2ozewQ/h4NmPoAtdEaGWhsprLGQ/uScKor9gUiCWuIyA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "f8d6d947-75f7-4186-bbb8-803d58dcfdb5",
+                            TwoFactorEnabled = false,
+                            UserName = "Test4@Test.com",
+                            Bookingid = 0,
+                            Fname = "British",
+                            PreferedCurrency = "USD",
+                            Sname = "MadLad"
                         });
                 });
 

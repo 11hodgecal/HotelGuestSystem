@@ -138,6 +138,50 @@ namespace HotelGuestSystem.Data
 
             builder.Entity<UserModel>().HasData(user);
 
+            UserModel user2 = new UserModel();
+            user2.Id = "27b9df32-a133-43e2-8dd2-aef04ddb2b8c";
+            user2.UserName = "Test2@Test.com";
+            user2.NormalizedUserName = "Test2@Test.com".ToUpper();
+            user2.NormalizedEmail = "Test2@Test.com".ToUpper();
+            user2.Email = "Test2@Test.com";
+            user2.Fname = "Bob";
+            user2.Sname = "Nobody";
+            user2.LockoutEnabled = false;
+            user2.ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29";
+            user2.PasswordHash = hasher.HashPassword(user, "Admin123!");
+            user2.PreferedCurrency = "EURO";
+
+            builder.Entity<UserModel>().HasData(user2);
+
+            UserModel user3 = new UserModel();
+            user3.Id = "27b9df37-a133-43e2-8dd2-aef04ddb2b8c";
+            user3.UserName = "Test3@Test.com";
+            user3.NormalizedUserName = "Test3@Test.com".ToUpper();
+            user3.NormalizedEmail = "Test3@Test.com".ToUpper();
+            user3.Email = "Test3@Test.com";
+            user3.Fname = "Bob";
+            user3.Sname = "Nobody";
+            user3.LockoutEnabled = false;
+            user3.ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29";
+            user3.PasswordHash = hasher.HashPassword(user, "Admin123!");
+            user3.PreferedCurrency = "USD";
+
+            builder.Entity<UserModel>().HasData(user3);
+
+            UserModel user4 = new UserModel();
+            user4.Id = "27b9df47-a133-43e2-8dd2-aef04ddb2b8c";
+            user4.UserName = "Test4@Test.com";
+            user4.NormalizedUserName = "Test4@Test.com".ToUpper();
+            user4.NormalizedEmail = "Test4@Test.com".ToUpper();
+            user4.Email = "Test4@Test.com";
+            user4.Fname = "British";
+            user4.Sname = "MadLad";
+            user4.LockoutEnabled = false;
+            user4.ConcurrencyStamp = "7b483dfe-e56c-4d5b-97cd-b32652794d29";
+            user4.PasswordHash = hasher.HashPassword(user, "Admin123!");
+            user4.PreferedCurrency = "USD";
+
+            builder.Entity<UserModel>().HasData(user4);
         }
 
         private void SeedUserRoles(ModelBuilder builder)
@@ -153,6 +197,21 @@ namespace HotelGuestSystem.Data
                 {
                     RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02",
                     UserId = "27b9df34-a133-43e2-8dd2-aef04ddb2b8c"
+                },
+                new IdentityUserRole<string>()
+                {
+                    RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02",
+                    UserId = "27b9df37-a133-43e2-8dd2-aef04ddb2b8c"
+                },
+                new IdentityUserRole<string>()
+                {
+                    RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02",
+                    UserId = "27b9df47-a133-43e2-8dd2-aef04ddb2b8c"
+                },
+                new IdentityUserRole<string>()
+                {
+                    RoleId = "ecfbe7ad-bb6b-49e6-ac2b-6359a73fbf02",
+                    UserId = "27b9df32-a133-43e2-8dd2-aef04ddb2b8c"
                 });
 
         }
